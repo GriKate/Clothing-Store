@@ -1,0 +1,28 @@
+{
+  "amount": 1350,
+  "countGoods": 3,
+  "contents": [
+    {
+      "id_product": 124,
+      "product_name": "Men`s Shirt",
+      "price": 150,
+      "img": "img/cart_drop_img_1.jpg",
+      "quantity": 3
+    },
+    {
+      "id_product": 300,
+      "product_name": "Woman`s Skirt",
+      "price": 300,
+      "img": "img/cart_drop_img_2.jpg",
+      "quantity": 2
+    },
+    {
+      "id_product": 457,
+      "product_name": "Woman`s Trousers",
+      "price": 300,
+      "img": "img/cart_drop_img_2.jpg",
+      "quantity": 1
+    }
+  ]
+}
+

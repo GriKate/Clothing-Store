@@ -1,0 +1,86 @@
+[
+  {
+    "id_product": 124,
+    "product_name": "Men`s Shirt",
+    "price": 15,
+    "img": "img/cart_drop_img_1.jpg",
+    "fabric": "Cotton"
+  },
+  {
+    "id_product": 457,
+    "product_name": "Woman`s Trousers",
+    "price": 30,
+    "img": "img/cart_drop_img_2.jpg",
+    "fabric": "Cotton"
+  },
+  {
+    "id_product": 450,
+    "product_name": "Mango Jacket",
+    "price": 80,
+    "img": "img/cart_drop_img_2.jpg",
+    "fabric": "Cotton"
+  },
+  {
+    "id_product": 125,
+    "product_name": "Mango Shirt",
+    "price": 20,
+    "img": "img/cart_drop_img_1.jpg",
+    "fabric": "Cotton"
+  },
+  {
+    "id_product": 300,
+    "product_name": "Woman`s Skirt",
+    "price": 50,
+    "img": "img/cart_drop_img_2.jpg",
+    "fabric": "Cotton"
+  },
+  {
+    "id_product": 451,
+    "product_name": "Mango Jacket",
+    "price": 70,
+    "img": "img/cart_drop_img_2.jpg",
+    "fabric": "Cotton"
+  },
+  {
+    "id_product": 120,
+    "product_name": "Men`s Polo",
+    "price": 40,
+    "img": "img/cart_drop_img_1.jpg",
+    "fabric": "Cotton"
+  },
+  {
+    "id_product": 400,
+    "product_name": "Woman`s Blouse",
+    "price": 60,
+    "img": "img/cart_drop_img_2.jpg",
+    "fabric": "Cotton"
+  },
+  {
+    "id_product": 460,
+    "product_name": "Mango Cardigan",
+    "price": 50,
+    "img": "img/cart_drop_img_2.jpg",
+    "fabric": "Cotton"
+  },
+  {
+    "id_product": 500,
+    "product_name": "Woman`s Boho Trousers",
+    "price": 65,
+    "img": "img/cart_drop_img_2.jpg",
+    "fabric": "Cotton"
+  },
+  {
+    "id_product": 501,
+    "product_name": "Woman`s Sweater",
+    "price": 35,
+    "img": "img/cart_drop_img_2.jpg",
+    "fabric": "Cotton"
+  },
+  {
+    "id_product": 502,
+    "product_name": "Woman`s Jacket",
+    "price": 90,
+    "img": "img/cart_drop_img_2.jpg",
+    "fabric": "Cotton"
+  }
+]

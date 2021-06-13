@@ -1,0 +1,262 @@
+[
+    {
+        "time": "September 19th 2020 4:22:08 pm",
+        "product_name": "Mango Shirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 19th 2020 4:22:33 pm",
+        "product_name": "Mango Shirt",
+        "action": "delete"
+    },
+    {
+        "time": "September 19th 2020 4:24:21 pm",
+        "product_name": "Woman`s Blouse",
+        "action": "add"
+    },
+    {
+        "time": "September 21st 2020 9:12:03 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:20:36 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:22:04 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:22:42 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:22:42 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:22:43 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:22:51 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:23:25 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:24:34 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:25:26 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:25:26 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:25:26 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:25:27 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:25:34 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:27:31 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:28:03 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:28:32 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:29:17 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:29:17 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:29:17 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:29:26 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:30:20 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:32:08 am",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:46:03 am",
+        "product_name": "Woman`s Skirt",
+        "action": "delete"
+    },
+    {
+        "time": "September 21st 2020 9:47:46 am",
+        "product_name": "Woman`s Blouse",
+        "action": "delete"
+    },
+    {
+        "time": "September 21st 2020 9:47:51 am",
+        "product_name": "Woman`s Trousers",
+        "action": "add"
+    },
+    {
+        "time": "September 21st 2020 9:47:52 am",
+        "product_name": "Woman`s Trousers",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:47:52 am",
+        "product_name": "Woman`s Trousers",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:47:57 am",
+        "product_name": "Mango Jacket",
+        "action": "add"
+    },
+    {
+        "time": "September 21st 2020 9:48:05 am",
+        "product_name": "Woman`s Trousers",
+        "action": "quantity change"
+    },
+    {
+        "time": "September 21st 2020 9:48:10 am",
+        "product_name": "Mango Jacket",
+        "action": "delete"
+    },
+    {
+        "time": "November 1st 2020 2:43:15 pm",
+        "product_name": "Men`s Shirt",
+        "action": "add"
+    },
+    {
+        "time": "November 1st 2020 2:43:24 pm",
+        "product_name": "Woman`s Skirt",
+        "action": "add"
+    },
+    {
+        "time": "November 14th 2020 11:41:55 pm",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "December 14th 2020 11:49:54 pm",
+        "product_name": "Mango Jacket",
+        "action": "add"
+    },
+    {
+        "time": "December 14th 2020 11:50:00 pm",
+        "product_name": "Mango Jacket",
+        "action": "delete"
+    },
+    {
+        "time": "December 15th 2020 12:02:17 am",
+        "product_name": "Woman`s Trousers",
+        "action": "delete"
+    },
+    {
+        "time": "December 20th 2020 3:24:17 pm",
+        "product_name": "Woman`s Trousers",
+        "action": "add"
+    },
+    {
+        "time": "January 13th 2021 9:46:24 pm",
+        "product_name": "Woman`s Trousers",
+        "action": "delete"
+    },
+    {
+        "time": "January 13th 2021 9:46:50 pm",
+        "product_name": "Woman`s Skirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "January 13th 2021 10:40:43 pm",
+        "product_name": "Woman`s Trousers",
+        "action": "add"
+    },
+    {
+        "time": "January 18th 2021 11:25:07 pm",
+        "product_name": "Men`s Shirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "January 18th 2021 11:25:22 pm",
+        "product_name": "Men`s Shirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "January 18th 2021 11:25:31 pm",
+        "product_name": "Men`s Shirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "January 18th 2021 11:25:33 pm",
+        "product_name": "Men`s Shirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "January 18th 2021 11:25:36 pm",
+        "product_name": "Men`s Shirt",
+        "action": "quantity change"
+    },
+    {
+        "time": "January 18th 2021 11:25:44 pm",
+        "product_name": "Woman`s Boho Trousers",
+        "action": "add"
+    },
+    {
+        "time": "February 2nd 2021 11:26:50 pm",
+        "product_name": "Woman`s Trousers",
+        "action": "delete"
+    },
+    {
+        "time": "June 13th 2021 2:48:50 pm",
+        "product_name": "Men`s Shirt",
+        "action": "quantity change"
+    }
+]
