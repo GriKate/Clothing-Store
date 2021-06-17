@@ -116,13 +116,11 @@ router.delete('/:num?', (req, res) => {
                 cart.contents.splice(cart.contents.indexOf(find), 1);
                 // уменьшаем количество товаров на 1
                 cart.productsQuantity--;
-
                 // пересчитываем общую сумму
                 cart.totalAmount = 0;
                 for (let el of cart.contents) {
                     cart.totalAmount += el.price * el.quantity;
                 }
-
                 // массив корзины пересохраняем в JSON-формат
                 let newCart = JSON.stringify(cart, null, 4);
                 // пересохраняем корзину на сервере - файл getBasket.json

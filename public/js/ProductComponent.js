@@ -10,9 +10,6 @@ Vue.component('product', {
         setProduct(product) {
             this.product = product;
         },
-        render(item) {
-
-        },
         quantityChange(item) {
             // this.product.quantity =
             console.log(item);
@@ -33,12 +30,10 @@ Vue.component('product', {
         this.$parent.getJson(`/entity/300`)
             .then(data => {
                 this.product = data;
-                // console.log(this.product);
             });
         this.$parent.getJson(`/colors`)
             .then(data => {
                 this.colors = data.colors;
-                // console.log(this.colors);
             });
     },
     template: `<section class="product">
@@ -96,7 +91,6 @@ Vue.component('product', {
                                                 <option :value="'XL'" class="size__item">XL</option>
                                                 <option :value="'XXL'" class="size__item">XXL</option>
                                             </select>
-<!--                                            <div class="choose__list-arrow"><i class="fas fa-chevron-down"></i></div>-->
                                         </form>
                                     </div>
                                     <div class="choose__drop">
