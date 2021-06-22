@@ -55,8 +55,8 @@
     border: 1px solid #ececec;
     background-color: #ffffff;
     padding: 12px 25px;
-    top: 70px;
-    left: 0;
+    top: 45px;
+    /*left: 0;*/
     z-index: 10;
 }
 
@@ -77,6 +77,13 @@
 .browse-drop {
     top: 36px;
     left: 0;
+}
+
+.cart-drop {
+    display: none;
+    top: 70px;
+    left: 0;
+    padding: 20px 15px;
 }
 
 .menu-drop__head {
