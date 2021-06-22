@@ -1,17 +1,9 @@
 {
-    "totalAmount": 170,
+    "totalAmount": 205,
     "productsQuantity": 3,
     "contents": [
         {
-            "quantity": 1,
-            "id_product": 124,
-            "product_name": "Men`s Shirt",
-            "price": 15,
-            "img": "img/cart_drop_img_1.jpg",
-            "fabric": "Cotton"
-        },
-        {
-            "quantity": 3,
+            "quantity": 2,
             "id_product": 300,
             "product_name": "Woman`s Skirt",
             "price": 30,
@@ -19,11 +11,19 @@
             "fabric": "Cotton"
         },
         {
-            "quantity": 1,
+            "quantity": 2,
             "id_product": 500,
             "product_name": "Woman`s Boho Trousers",
             "price": 65,
             "img": "img/cart_drop_img_2.jpg",
+            "fabric": "Cotton"
+        },
+        {
+            "quantity": 1,
+            "id_product": 124,
+            "product_name": "Men`s Shirt",
+            "price": 15,
+            "img": "img/cart_drop_img_1.jpg",
             "fabric": "Cotton"
         }
     ]

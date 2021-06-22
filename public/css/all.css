@@ -19,6 +19,10 @@ body {
     /**/
 }
 
+#app {
+    position: relative;
+}
+
 .clearfix:before,
 .clearfix:after {
     content: "";

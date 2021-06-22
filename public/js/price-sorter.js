@@ -2,17 +2,16 @@ class PriceSorter {
     constructor() {
         this.line = document.querySelector('.choice__price_line');
         this.handleLine = document.querySelector('.choice__price_bar');
-        this.handleMin = document.querySelector('#min-interval');
-        this.handleMax = document.querySelector('#max-interval');
-        this.buttonMin = document.querySelector('#handle-min');
-        this.buttonMax = document.querySelector('#handle-max');
+        this.inputMin = document.querySelector('#min-price-input');
+        this.inputMax = document.querySelector('#max-price-input');
+        this.buttonMin = document.querySelector('#min-price-button');
+        this.buttonMax = document.querySelector('#max-price-button');
         this.buttonHalf = this.buttonMin.offsetWidth / 2;
-        // this.buttonHalfPercent = this.buttonHalf * this.percentMax / this.line.offsetWidth;
 
-        // ширина розовой линии в пикселях
+        // width of price range line in px
         this.handleLineWidth = parseInt(getComputedStyle(this.line).width);
 
-        // значения цены
+        // price value
         this.minPrice = 0;
         this.maxPrice = 100;
         this.currentMinPrice = this.minPrice;
@@ -22,49 +21,47 @@ class PriceSorter {
         this.currentPercentMin = 0;
         this.currentPercentMax = 100;
 
+        this.newLeftPosition = 0;
+        this.newRightPosition = 0;
+
         this._changeMin();
         this._changeMax();
         this._moveBtn();
     }
+
+    // set price by handlers
+
     _moveBtn() {
         this.buttonMin.onmousedown = (event) => {
-            event.preventDefault(); // предотвратить запуск выделения (действие браузера)
+            event.preventDefault();
+            // width from handler left side to cursor point on handler
+            let shiftX = event.clientX - this.buttonMin.getBoundingClientRect().left;
 
-            // ширина части ползунка до курсора = координаты курсора в момент нажатия мыши  -  координаты левой границы ползунка
-            let shiftX = event.clientX - this.buttonMin.getBoundingClientRect().left; // left + width/2
-            // shiftY здесь не нужен, слайдер двигается только по горизонтали
-
-            // ф-ия стрелочная, чтобы сохранить доступ к this и пользоваться переменными из конструктора класса
             let onMouseMove = (event) => {
-                // новое положение ползунка = координаты курсора в момент нажатия мыши
-                //   -  координаты левого края линии  -  ширина части ползунка до курсора
-                let newLeft = event.clientX - this.line.getBoundingClientRect().left - shiftX;
+                // new coordinates of left handler
+                this.newLeftPosition = event.clientX - this.line.getBoundingClientRect().left - shiftX + this.buttonHalf;
 
-                // курсор вышел из слайдера => оставить ползунок в границах слайдера.
-                if (newLeft < 0) {
-                    newLeft = 0;
+                // when mouse go out left
+                if (this.newLeftPosition < 0) {
+                    this.newLeftPosition = 0;
                 }
 
-                // если ползунок вышел справа, крайнее положение справа = ширина линии
-                if (newLeft > this.line.offsetWidth) {
-                    newLeft = this.line.offsetWidth;
+                // when mouse go out right
+                if (this.newLeftPosition > this.line.offsetWidth) {
+                    this.newLeftPosition = this.line.offsetWidth - this.newRightPosition;
                 }
 
-                // итоговые стили ползунка и линии
-                // пока его цена меньше currentMaxPrice, ползунок может двигаться в большую сторону
-                if (this.currentMinPrice < this.currentMaxPrice) {
-                    // находим из px текущее расстояние до левого ползунка в %, чтобы ->
-                    this.currentPercentMin = Math.round(newLeft * 100 / this.handleLineWidth);
-                    // расстояние до левого ползунка в % перевести в $
+                if (this.currentMinPrice <= this.currentMaxPrice) {
+                    this.currentPercentMin = Math.round(this.newLeftPosition * 100 / this.handleLineWidth);
+                    // minimal price: length from left edge of price line to left handler in $
                     this.currentMinPrice = this.currentPercentMin * this.division;
-                    // выводим минимальную стоимость в инпут
-                    this.handleMin.value = this.currentMinPrice;
+                    this.inputMin.value = this.currentMinPrice;
 
-                    // задаем новое положение ползунку через стиль, вычитаем половину ширины кнопки
-                    this.buttonMin.style.left = newLeft - this.buttonHalf + 'px';
+                    // style for left handler in px
+                    this.buttonMin.style.left = this.newLeftPosition - this.buttonHalf + 'px';
 
-                    // начало и ширина розовой линии
-                    this.handleLine.style.left = newLeft + 'px';
+                    // start and with of price range line
+                    this.handleLine.style.left = this.newLeftPosition + 'px';
                     this.handleLine.style.width = (this.percentMax - this.currentPercentMin - (this.percentMax - this.currentPercentMax)) + '%';
                 }
             };
@@ -72,7 +69,23 @@ class PriceSorter {
             document.addEventListener('mousemove', onMouseMove);
             document.addEventListener('mouseup', onMouseUp);
 
+            let checkLeftSlider = () => {
+                if (this.newLeftPosition >= (this.handleLineWidth - this.newRightPosition)) {
+                    this.currentMinPrice = this.currentMaxPrice;
+                    this.inputMin.value = this.currentMinPrice;
+
+                    // style for left handler in px
+                    this.buttonMin.style.left = (this.line.offsetWidth * (this.currentMaxPrice * 100 / this.maxPrice) / 100) - shiftX + 'px';
+
+                    this.currentPercentMin = this.currentPercentMax;
+                    // start and width of price range line
+                    this.handleLine.style.left = this.newLeftPosition + 'px';
+                    this.handleLine.style.width = (this.percentMax - this.currentPercentMin - (this.percentMax - this.currentPercentMax)) + '%';
+                }
+            };
+
             function onMouseUp() {
+                checkLeftSlider();
                 document.removeEventListener('mouseup', onMouseUp);
                 document.removeEventListener('mousemove', onMouseMove);
             }
@@ -84,43 +97,37 @@ class PriceSorter {
 
 
         this.buttonMax.onmousedown = (event) => {
-            event.preventDefault(); // предотвратить запуск выделения (действие браузера)
+            event.preventDefault();
 
-            // ширина части ползунка направо от курсора = координаты правой границы ползунка  -  координаты курсора в момент нажатия мыши
+            // width from handler right side to cursor point on handler
             let shiftX = this.buttonMax.getBoundingClientRect().right - event.clientX;
-            // shiftY здесь не нужен, слайдер двигается только по горизонтали
 
             let onMouseMove = (event) => {
-                // новое положение ползунка от правого края =
-                // координаты курсора в момент нажатия мыши  -  координаты правой границы линии  -  ширина части ползунка направо от курсора
-                let newRight = this.line.getBoundingClientRect().right - event.clientX - shiftX;
+                this.newRightPosition = this.line.getBoundingClientRect().right - event.clientX - shiftX + this.buttonHalf;
 
-                // курсор вышел из слайдера вправо => оставить ползунок в границах слайдера.
-                if (newRight < 0) {
-                    newRight = 0;
+                // when mouse go out right
+                if (this.newRightPosition < 0) {
+                    this.newRightPosition = 0;
                 }
 
-                // крайнее положение слева = ширина линии
+                // when mouse go out left
                 let leftEdge = this.line.getBoundingClientRect().left;
-                if ((this.line.getBoundingClientRect().right - newRight) < leftEdge) {
-                    newRight = this.line.offsetWidth;
+                if ((this.line.getBoundingClientRect().right - this.newRightPosition) < leftEdge) {
+                    this.newRightPosition = this.line.offsetWidth - this.newLeftPosition;
                 }
 
-                // итоговые стили ползунка и линии
-                if (this.currentMaxPrice > this.currentMinPrice) {
-                    // находим текущее расстояние от правого ползунка до правого конца линии из %ax, чтобы ->
-                    let differenceToMax = Math.round(newRight * 100 / this.handleLineWidth);
-                    // расстояние до правого ползунка в % перевести в $
+                if (this.currentMaxPrice >= this.currentMinPrice) {
+                    let differenceToMax = Math.round(this.newRightPosition * 100 / this.handleLineWidth);
+                    // max price in $
                     this.currentMaxPrice = this.maxPrice - differenceToMax * this.division;
-                    // выводим максимальную стоимость в инпут
-                    this.handleMax.value = this.currentMaxPrice;
+                    this.inputMax.value = this.currentMaxPrice;
 
                     this.currentPercentMax = this.percentMax - differenceToMax;
 
-                    // задаем новое положение ползунку через стиль, вычитаем половину ширины кнопки
-                    this.buttonMax.style.right = Math.abs(newRight) - this.buttonHalf + 'px';
+                    // style for right handler in px
+                    this.buttonMax.style.right = Math.abs(this.newRightPosition) - this.buttonHalf + 'px';
 
-                    // ширина розовой линии
+                    // width of price range line
                     this.handleLine.style.width = (this.percentMax - this.currentPercentMin - (this.percentMax - this.currentPercentMax)) + '%';
                 }
             };
@@ -128,7 +135,23 @@ class PriceSorter {
             document.addEventListener('mousemove', onMouseMove);
             document.addEventListener('mouseup', onMouseUp);
 
+            let checkRightSlider = () => {
+                if (this.newRightPosition >= (this.handleLineWidth - this.newLeftPosition)) {
+                    this.currentMaxPrice = this.currentMinPrice;
+                    this.inputMax.value = this.currentMaxPrice;
+
+                    // style for right handler in px
+                    this.buttonMax.style.right = this.line.offsetWidth - (this.line.offsetWidth * (this.currentMinPrice * 100 / this.maxPrice) / 100) - shiftX + 'px';
+
+                    this.currentPercentMax = this.currentPercentMin;
+                    // start and width of price range line
+                    this.handleLine.style.left = this.newLeftPosition + 'px';
+                    this.handleLine.style.width = (this.percentMax - this.currentPercentMin - (this.percentMax - this.currentPercentMax)) + '%';
+                }
+            };
+
             function onMouseUp() {
+                checkRightSlider();
                 document.removeEventListener('mouseup', onMouseUp);
                 document.removeEventListener('mousemove', onMouseMove);
             }
@@ -141,27 +164,25 @@ class PriceSorter {
         return percent;
     }
 
+    // set price through input
+
     _changeMin(){
-        this.handleMin.addEventListener('input', e => {
-            let value = this.handleMin.value;
+        this.inputMin.addEventListener('input', e => {
+            let value = +this.inputMin.value;
 
-            if (value >= this.minPrice && value < this.currentMaxPrice) {
-                this.currentMinPrice = +value;
+            if (value >= this.minPrice && value <= this.currentMaxPrice) {
+                this.currentMinPrice = value;
 
-                // находим % слева
-                let handleMove = Math.round(this.currentMinPrice / this.division); // input / 10
-
-                // сохраняем текущее расстояние до левого ползунка в %
+                // minimal price in %
+                let handleMove = Math.round(this.currentMinPrice / this.division);
                 this.currentPercentMin = handleMove;
+                // style for left handler in % of price line
+                this.buttonMin.style.left = (handleMove - this.buttonHalf * this.percentMax / this.line.offsetWidth) + '%';
 
-                // новое положение левого ползунка  =
-                // текущее расстояние до левого ползунка в %  -  1\2 ширины кнопки в %
-                this.buttonMin.style.left = (handleMove - this.buttonHalf * this.percentMax / this.line.offsetWidth) + '%'; //-1%
-
-                // отступ розовой линии слева в % от длины линии
+                // left edge of price range line
                 this.handleLine.style.left = handleMove + '%';
 
-                // ширина розовой линии в %
+                // width of price range line in %
                 let percent = this._math();
                 this.handleLine.style.width = percent + '%';
             }
@@ -169,22 +190,20 @@ class PriceSorter {
     }
 
     _changeMax(){
-        this.handleMax.addEventListener('input', e => {
-            let value = this.handleMax.value;
+        this.inputMax.addEventListener('input', e => {
+            let value = +this.inputMax.value;
 
-            if (value < this.maxPrice && value >= this.currentMinPrice) {
-                this.currentMaxPrice = +value;
-                // console.log(this.currentMaxPrice);
+            if (value <= this.maxPrice && value >= this.currentMinPrice) {
+                this.currentMaxPrice = value;
 
-                // находим max %, он же - % слева
-                let handleMove = Math.round(this.currentMaxPrice / this.division); //50%
+                // max price in %
+                let handleMove = Math.round(this.currentMaxPrice / this.division);
                 this.currentPercentMax = handleMove;
 
-                // новое положение правого ползунка  =
-                // текущее расстояние слева до правого ползунка в %  -  1\2 ширины кнопки в %
+                // style for right handler in % of price line
                 this.buttonMax.style.right = this.percentMax - (handleMove + this.buttonHalf * this.percentMax / this.line.offsetWidth) + '%';
 
-                // ширина розовой линии в %
+                // width of price range line in %
                 let percent = this._math();
                 this.handleLine.style.width = percent + '%';
             }

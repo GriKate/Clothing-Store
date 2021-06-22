@@ -14,13 +14,10 @@ Vue.component('cartPage', {
             if (product.quantity < 1) {
                 console.log('Products quantity must be more then 1');
             } else {
-                // изменяем количество товара на количество, введенное пользователем
                 this.$parent.putJson(`/cart/${product.id_product}`, {quantity: product.quantity})
                     .then(data => {
                         if (data.result) {
                             this.countSum();
-                            // изменяем количество товара и общую сумму в компоненте cart
-                            // он в коде выше, загружается раньше, поэтому доступен из этого компонента
                             let cartCompProduct = this.$parent.$refs.cart.cartProducts.find((el) => el.id_product === product.id_product);
                             cartCompProduct.quantity = product.quantity;
                             this.$parent.$refs.cart.totalAmount = this.totalAmount;
@@ -32,22 +29,14 @@ Vue.component('cartPage', {
             }
         },
         removeFromCart(item) {
-            // удаляем товар целиком
-            // по @remove мы отправляем объект товара для удаления
-            // находим в массиве cartProducts: [] товар, id которого равен id объекта товара для удаления
             let product = this.cartProducts.find((el) => item.id_product === el.id_product);
-                // отправляем на сервер id объекта товара для удаления
-                // 1
                 this.$parent.deleteJson(`/cart/${product.id_product}`)
-                    // 7
                     .then(data => {
                         if (data.result) {
-                            // если на сервере товар удалился из корзины, удаляем его на фронте
-                            // из массива cartProducts: [] компонента cartPage
                             this.cartProducts.splice(this.cartProducts.indexOf(product), 1);
                             this.countSum();
                             this.quantityChange();
-                            // удаляем товар из компонента cart
+
                             let cartCompProduct = this.$parent.$refs.cart.cartProducts.find((el) => product.id_product === el.id_product);
                             this.$parent.$refs.cart.cartProducts.splice(this.cartProducts.indexOf(cartCompProduct), 1);
                             this.$parent.$refs.cart.totalAmount = this.totalAmount;
@@ -61,7 +50,6 @@ Vue.component('cartPage', {
         removeAll() {
             this.$parent.deleteJson(this.cartUrl)
                 .then(data => {
-                    console.log(data);
                     if (data) {
                         this.cartProducts = [];
                         this.$parent.$refs.cart.cartProducts = [];
@@ -89,17 +77,10 @@ Vue.component('cartPage', {
         },
     },
     mounted() {
-        // в момент загрузки страницы /mycart
-        // делаем GET запрос по URL '/cart' и получаем ответ - объект корзины без Vue-обёрток геттеров и сеттеров
-        // т.к. в JSON получаем объект, в котором только data.contents - массив обьектов товаров корзины
         this.$parent.getJson(this.cartUrl)
             .then(data => {
                 for (let el of data.contents) {
-                    // каждый товар корзины пушим в массив cartProducts: [] компонента CartPage
                     this.cartProducts.push(el);
-                    console.log(this.cartProducts);
-                    // в mounted нельзя получить данные другого компонента, здесь рано!!!
-                    // this.$parent.$refs.cart.cartProducts.push(el);
                 }
                 this.totalAmount = data.totalAmount;
                 this.productsQuantity = data.productsQuantity;
@@ -201,11 +182,9 @@ Vue.component('cartPageProduct', {
                         <p class="subtotal__value">$ {{cartProd.quantity * cartProd.price}}</p>
                     </td>
                     <td class="table__body-cell">
-<!--                        <div class="table__delete-button">-->
                             <a href="#" @click.prevent="$emit('remove', cartProd)" class="delete-button__link">
                                 <i class="fas fa-times-circle"></i>
                             </a>
-<!--                        </div>-->
                     </td>
                 </tr>`
 });
