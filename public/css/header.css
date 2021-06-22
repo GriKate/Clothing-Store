@@ -45,6 +45,7 @@
 
 .header__right_cart-box {
     position: relative;
+    width: 100px;
     height: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -52,6 +53,7 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    justify-content: center;
 }
 
 .header__right_cart-box:hover .cart-drop {
@@ -234,11 +236,6 @@
     left: 68px;
 }
 
-.browse-drop {
-    top: 36px;
-    left: 0;
-}
-
 .fa-caret-down {
     color: #fff;
     margin-left: 8px;
@@ -291,7 +288,7 @@
 .pink__button {
     height: 38px;
     padding: 0 19px 0;
-    margin-left: 26px;
+    /*margin-left: 26px;*/
     line-height: 38px;
     background-color: #f16d7f;
 }

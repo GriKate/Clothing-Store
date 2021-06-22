@@ -33,7 +33,6 @@
     float: left;
     padding-left: 12px;
     border-left: 12px solid #f16d7f;
-    /**/
 }
 
 .specials {
@@ -121,6 +120,7 @@
 }
 
 .banner__container {
+    display: flex;
     width: 1140px;
     height: 530px;
     margin: auto;
@@ -130,7 +130,6 @@
 .banner__left {
     width: 767px;
     height: 530px;
-    float: left;
     background: url(../img/banner.jpg) center center no-repeat;
 }
 
@@ -160,7 +159,6 @@
 
 .banner__right {
     width: 373px;
-    float: right;
     padding: 48px 36px;
 }
 

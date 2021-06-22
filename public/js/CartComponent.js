@@ -10,23 +10,21 @@ Vue.component('cart', {
     methods: {
         addToCart(product) {
             let find = this.cartProducts.find((el) => product.id_product === el.id_product);
-            console.log(find);
+            // console.log(find);
             // if (find) {
                 // товар есть в корзине
                 // если цвет и размер такой же - увеличиваем количество
                 if (find && product.color === find.color && product.size === find.size) {
                     this.$parent.putJson(`/cart/${product.id_product}`, {quantity: 1})
+                    // this.$parent.putJson(`/cart/0`, {quantity: 1})
                         .then(data => {
                             if (data.result) {
                                 find.quantity++;
                                 this.countSum();
-                            } else {
-                                console.log(error);
                             }
                         })
                         .catch(error => console.log(error))
-                    // не получится обратиться к компоненту cart-page, тк его пока нет на странице catalog.html
-                    // console.log(this.$parent.$refs.cart-page.cartUrl);
+
                 // } else {
                 // если в корзине есть товар с таким id, но цвет или размер отличается - добавляем новый товар
 
@@ -40,8 +38,6 @@ Vue.component('cart', {
                             this.cartProducts.push(productToCart);
                             this.quantityChange();
                             this.countSum();
-                        } else {
-                            console.log(error);
                         }
                     })
                     .catch(error => console.log(error))
@@ -55,12 +51,6 @@ Vue.component('cart', {
                         if (data.result) {
                             product.quantity--;
                             this.countSum();
-
-                            let cartPageProduct = this.$parent.$refs.cartPage.cartProducts.find((el) => product.id_product === el.id_product);
-                            cartPageProduct.quantity--;
-                            this.$parent.$refs.cartPage.totalAmount = this.totalAmount;
-                        } else {
-                            console.log(error);
                         }
                     })
                     .catch(error => console.log(error))
@@ -71,13 +61,6 @@ Vue.component('cart', {
                             this.cartProducts.splice(this.cartProducts.indexOf(product), 1);
                             this.countSum();
                             this.productsQuantity = this.cartProducts.length;
-
-                            let cartPageProduct = this.$parent.$refs.cartPage.cartProducts.find((el) => product.id_product === el.id_product);
-                            this.$parent.$refs.cartPage.cartProducts.splice(this.$parent.$refs.cartPage.cartProducts.indexOf(cartPageProduct), 1);
-                            this.$parent.$refs.cartPage.totalAmount = this.totalAmount;
-                            this.$parent.$refs.cartPage.quantity = this.quantity;
-                        } else {
-                            console.log(error);
                         }
                     })
                     .catch(error => console.log(error))
