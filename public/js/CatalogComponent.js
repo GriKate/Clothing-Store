@@ -60,8 +60,10 @@ Vue.component('catalog', {
                     this.filtered.push(el);
                 }
                 this.getRandom();
-                this.$parent.$refs.catalogPages.countPages(this.filtered.length);
-                this.sliceCatalog(1);
+                if (this.num >= 9) {
+                    this.$parent.$refs.catalogPages.countPages(this.filtered.length);
+                    this.sliceCatalog(1);
+                }
             })
     },
     template: `<div>
@@ -128,7 +130,7 @@ Vue.component('catalog-product', {
     },
     computed: {
         imgName() {
-            let img = this.img + this.productItem.id_product + '_' + this.currentImg + '.jpg'; // img/124.jpg
+            let img = this.img + this.productItem.id_product + '_' + this.currentImg + '.jpg';
             return 'url(' + img + ')';
         }
     },

@@ -10,10 +10,8 @@ Vue.component('cartPage', {
     methods: {
         changeQuantity(item) {
             let product = this.cartProducts.find((el) => el.id_product === item.id_product);
-            // если в quantity меньше 1 - выводим сообщение об ошибке
-            if (product.quantity < 1) {
-                console.log('Products quantity must be more then 1');
-            } else {
+
+            if (product.quantity >= 1) {
                 this.$parent.putJson(`/cart/${product.id_product}`, {quantity: product.quantity})
                     .then(data => {
                         if (data.result) {
@@ -170,7 +168,7 @@ Vue.component('cartPageProduct', {
                         <p class="price__value">$ {{cartProd.price}}</p>
                     </td>
                     <td class="table__body-cell">
-                        <form action="#" @input.prevent="$emit('change', cartProd)" class="quantity__form">
+                        <form @input.prevent="$emit('change', cartProd)" class="quantity__form">
                             <input type="number" min="1" v-model="cartProd.quantity" class="quantity__input">
                         </form>
                         <p class="quantity__input_empty" v-if="cartProd.quantity < 1">Enter a value <br>greater than 1</p>
