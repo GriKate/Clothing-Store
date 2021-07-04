@@ -95,7 +95,7 @@ Vue.component('product', {
                                     <div class="choose__drop">
                                         <p class="choose__text">QUANTITY</p>
                                         <form class="quantity__form">
-                                            <input type="number" min="1" required placeholder="Set quantity..." value="1" @input="setQuantity($event)" class="quantity__input">
+                                            <input type="number" min="1" required placeholder="Set quantity..." value="1" @input="setQuantity($event)" @focus="$event.target.value = ''" class="quantity__input">
                                         </form>
                                         <p class="quantity__input_empty" v-if="product.quantity < 1">Enter a value <br>greater than 1</p>
                                     </div>
