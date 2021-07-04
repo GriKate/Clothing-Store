@@ -9,28 +9,23 @@ Vue.component('cart', {
     },
     methods: {
         addToCart(product) {
+            product.quantity = Math.abs(product.quantity);
             let find = this.cartProducts.find((el) => product.id_product === el.id_product);
-            // console.log(find);
-            // if (find) {
-                // товар есть в корзине
-                // если цвет и размер такой же - увеличиваем количество
-                if (find && product.color === find.color && product.size === find.size) {
-                    this.$parent.putJson(`/cart/${product.id_product}`, {quantity: 1})
-                    // this.$parent.putJson(`/cart/0`, {quantity: 1})
-                        .then(data => {
-                            if (data.result) {
-                                find.quantity++;
-                                this.countSum();
-                            }
-                        })
-                        .catch(error => console.log(error))
 
-                // } else {
-                // если в корзине есть товар с таким id, но цвет или размер отличается - добавляем новый товар
-
-                // }
+            // if it is the product is in cart with same color and size
+            if (find && product.color === find.color && product.size === find.size) {
+                let currentQuantity = this.setQuantity(find.quantity, product.quantity);
+                this.$parent.putJson(`/cart/${product.id_product}`, {quantity: currentQuantity})
+                    .then(data => {
+                        if (data.result) {
+                            find.quantity = currentQuantity;
+                            this.countSum();
+                        }
+                    })
+                    .catch(error => console.log(error))
             } else {
-                // добавляем в корзину новый товар
+                // if it is no product with this id
+                console.log(product.quantity);
                 let productToCart = Object.assign({quantity: 1}, product);
                 this.$parent.postJson(this.cartUrl, productToCart)
                     .then(data => {
@@ -42,6 +37,13 @@ Vue.component('cart', {
                     })
                     .catch(error => console.log(error))
             }
+        },
+        setQuantity(oldProdQuantity, newProdQuantity) {
+            if (newProdQuantity) {
+                let totalQuantity = oldProdQuantity + newProdQuantity;
+                return totalQuantity;
+            }
+            return 1;
         },
         removeFromCart(item) {
             let product = this.cartProducts.find((el) => item.id_product === el.id_product);

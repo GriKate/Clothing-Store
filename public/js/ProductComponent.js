@@ -10,24 +10,22 @@ Vue.component('product', {
         setProduct(product) {
             this.product = product;
         },
-        quantityChange(item) {
-            // this.product.quantity =
-            console.log(item);
+        setQuantity(event) {
+            this.product.quantity = event.target.value;
+            console.log(this.product.quantity);
         },
         setColor(event) {
             // в <select> можно было использовать v-model="product.color" для мгновенного задания значения,
             // вместо вызова метода, но тогда не отображалось бы <option disabled selected>Color...
             // т.к. v-model="product.color" сразу же задает значение "" для color, и в <option> отображается пустота
             this.product.color = event.target.value;
-            console.log(this.product.color);
         },
         setSize(event) {
             this.product.size = event.target.value;
-            console.log(this.product.size);
         }
     },
     mounted() {
-        this.$parent.getJson(`/entity/300`)
+        this.$parent.getJson(`/entity/502`)
             .then(data => {
                 this.product = data;
             });
@@ -67,13 +65,14 @@ Vue.component('product', {
                                 <div class="choose__block">
                                     <div class="choose__drop">
                                         <p class="choose__text">CHOOSE COLOR</p>
-                                        <form action="#" class="color__form">
+                                        <form class="color__form">
 <!-- в <select> можно было использовать v-model="product.color" для мгновенного задания значения, вместо вызова метода, но тогда не отображалось бы -->
 <!--<option disabled selected>Color... т.к. v-model="product.color" сразу же задает значение "" для color, и в <option> отображается пустота -->
                                             <select name="" id="1" required @change="setColor($event)" class="choose__list">
                                                 <option disabled selected>Color...</option>
                                                 <color 
                                                 v-for="color of colors" 
+                                                :key="color"
                                                 :color="color"
                                                 ></color>
                                             </select>
@@ -95,9 +94,10 @@ Vue.component('product', {
                                     </div>
                                     <div class="choose__drop">
                                         <p class="choose__text">QUANTITY</p>
-                                        <form action="#" class="quantity__form">
-                                            <input type="number" min="1" required value="1" placeholder="1" v-model="product.quantity" class="quantity__input">
+                                        <form class="quantity__form">
+                                            <input type="number" min="1" required placeholder="Set quantity..." value="1" @input="setQuantity($event)" class="quantity__input">
                                         </form>
+                                        <p class="quantity__input_empty" v-if="product.quantity < 1">Enter a value <br>greater than 1</p>
                                     </div>
                                 </div>
                                 <div class="cart__add">

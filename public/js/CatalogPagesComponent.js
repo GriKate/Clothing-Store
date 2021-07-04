@@ -81,6 +81,7 @@ Vue.component('catalogPages', {
                         </div>
                         <page 
                         v-for="page of pageNums" 
+                        :key="page"
                         :page="page"
                         ></page>
                         <div class="pages__item">

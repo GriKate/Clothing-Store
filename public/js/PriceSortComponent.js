@@ -17,7 +17,6 @@ Vue.component('priceSort', {
     },
     methods: {
         priceBtn(e) {
-            // console.log(e);
             let onMouseMove = () => {
                 this.setPrice();
             };
@@ -29,21 +28,10 @@ Vue.component('priceSort', {
             }
         },
         setPrice() {
-            // при движении ползунков в minPrice попадает значение на $1 меньше/больше отображаемого
-            // при движении ползунков в maxPrice попадает значение на $1 меньше отображаемого
-            // при очень быстром перемещении ползунков. в инпуте видим 25, в цене записалось 24
-
             let minPrice = parseInt(this.inputMin.value);
             let maxPrice = parseInt(this.inputMax.value);
-            // console.log(this.inputMin.value);
-            // console.log(minPrice);
-            // console.log(this.inputMax.value);
-            // console.log(maxPrice);
 
             if (minPrice < this.currentMaxPrice && maxPrice > this.currentMinPrice) {
-
-                // сюда не попадаем, когда вводим макс цену после переезда ползунков друг за друга
-                // ползунки разъезжаются, но сюда не попадаем
                 this.currentMinPrice = minPrice;
                 this.currentMaxPrice = maxPrice;
                 this.$parent.$refs.catalog.filterPrice(this.currentMinPrice, this.currentMaxPrice);

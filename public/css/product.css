@@ -240,7 +240,7 @@
   border: 1px solid #eaeaea;
   padding: 8px 13px 10px 33px;
   text-transform: capitalize;
-  color: #bcbcbc;
+  color: #777;
   cursor: pointer;
   outline: none;
 }
@@ -264,9 +264,14 @@
   border: 1px solid #eaeaea;
   padding: 8px 13px 10px 13px;
   text-transform: capitalize;
-  color: #bcbcbc;
+  color: #777;
   cursor: pointer;
   outline: none;
+}
+
+.required__star {
+  color: red;
+  font-size: 15px;
 }
 
 .quantity__input {
@@ -277,6 +282,13 @@
   color: #bcbcbc;
   cursor: pointer;
   outline: none;
+}
+
+.quantity__input_empty {
+  margin-top: 5px;
+  color: red;
+  font-weight: 700;
+  line-height: 16px;
 }
 
 .uppercase {
