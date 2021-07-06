@@ -1,11 +1,9 @@
 const moment = require('moment');
 const fs = require('fs');
 
-// логгер получает имя и действие, создает новый объект и сохраняет его в файл лога
 const logger = (name, action) => {
     fs.readFile('server/db/stats.json', 'utf-8', (err, data) => {
         if (err) {
-            // ошибка чтения
             console.log(err);
         } else {
             // массив с имеющимися записями лога

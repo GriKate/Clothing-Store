@@ -12,12 +12,8 @@ Vue.component('product', {
         },
         setQuantity(event) {
             this.product.quantity = event.target.value;
-            console.log(this.product.quantity);
         },
         setColor(event) {
-            // в <select> можно было использовать v-model="product.color" для мгновенного задания значения,
-            // вместо вызова метода, но тогда не отображалось бы <option disabled selected>Color...
-            // т.к. v-model="product.color" сразу же задает значение "" для color, и в <option> отображается пустота
             this.product.color = event.target.value;
         },
         setSize(event) {
@@ -66,8 +62,6 @@ Vue.component('product', {
                                     <div class="choose__drop">
                                         <p class="choose__text">CHOOSE COLOR</p>
                                         <form class="color__form">
-<!-- в <select> можно было использовать v-model="product.color" для мгновенного задания значения, вместо вызова метода, но тогда не отображалось бы -->
-<!--<option disabled selected>Color... т.к. v-model="product.color" сразу же задает значение "" для color, и в <option> отображается пустота -->
                                             <select name="" id="1" required @change="setColor($event)" class="choose__list">
                                                 <option disabled selected>Color...</option>
                                                 <color 
@@ -95,7 +89,7 @@ Vue.component('product', {
                                     <div class="choose__drop">
                                         <p class="choose__text">QUANTITY</p>
                                         <form class="quantity__form">
-                                            <input type="number" min="1" required placeholder="Set quantity..." value="1" @input="setQuantity($event)" class="quantity__input">
+                                            <input type="number" min="1" required placeholder="Set quantity..." value="1" @input="setQuantity($event)" @focus="$event.target.value = ''" class="quantity__input">
                                         </form>
                                         <p class="quantity__input_empty" v-if="product.quantity < 1">Enter a value <br>greater than 1</p>
                                     </div>
