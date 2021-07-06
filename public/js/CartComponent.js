@@ -9,23 +9,27 @@ Vue.component('cart', {
     },
     methods: {
         addToCart(product) {
-            product.quantity = Math.abs(product.quantity);
             let find = this.cartProducts.find((el) => product.id_product === el.id_product);
 
             // if it is the product is in cart with same color and size
             if (find && product.color === find.color && product.size === find.size) {
                 let currentQuantity = this.setQuantity(find.quantity, product.quantity);
+
                 this.$parent.putJson(`/cart/${product.id_product}`, {quantity: currentQuantity})
                     .then(data => {
                         if (data.result) {
-                            find.quantity = currentQuantity;
+                            if (!product.quantity) {
+                                find.quantity++;
+                            } else {
+                                find.quantity = currentQuantity;
+                            }
                             this.countSum();
                         }
                     })
                     .catch(error => console.log(error))
+
             } else {
                 // if it is no product with this id
-                console.log(product.quantity);
                 let productToCart = Object.assign({quantity: 1}, product);
                 this.$parent.postJson(this.cartUrl, productToCart)
                     .then(data => {
@@ -40,6 +44,7 @@ Vue.component('cart', {
         },
         setQuantity(oldProdQuantity, newProdQuantity) {
             if (newProdQuantity) {
+                newProdQuantity = Math.abs(newProdQuantity);
                 let totalQuantity = oldProdQuantity + newProdQuantity;
                 return totalQuantity;
             }

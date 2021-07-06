@@ -44,11 +44,7 @@ router.put('/:num', (req, res) => {
     // id in req.params comes as a string
     const num = +req.params.num;
     if (num < 1) {
-        // id!
-        // здесь всегда будет приводиться к положительному числу, даже если пришло отрицательное!
-        // нужно обрабатывать эту ошибку на фронте!
-        // id!!!!!!!!
-        res.sendStatus(404, JSON.stringify({result: 0, text: 'Products quantity must be more then 1'}));
+        res.sendStatus(404, JSON.stringify({result: 0, text: 'Not valid ID'}));
     } else {
         fs.readFile('server/db/getBasket.json', 'utf-8', (err, data) => {
             if (err) {
@@ -57,7 +53,7 @@ router.put('/:num', (req, res) => {
                 let cart = JSON.parse(data);
                 let find = cart.contents.find(el => el.id_product === num);
                 let name = find.product_name;
-                // if quantity is positive number, set it like prod quantity
+                // if quantity is positive number, set it like product quantity
                 if (req.body.quantity > 1) {
                     find.quantity = +req.body.quantity;
                 } else if (req.body.quantity === 1) {
