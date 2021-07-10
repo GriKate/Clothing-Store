@@ -1,0 +1,45 @@
+.error-wrapper
+  width: 100vw
+  height: 100vh
+  position: fixed
+  top: 0
+  left: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: rgba(0, 0, 0, 0.6)
+
+.error-block
+  padding: 50px
+  background-color: #f16d7f
+
+.error-msg
+  position: relative
+
+
+.close-btn
+  width: 30px
+  height: 30px
+  position: absolute
+  top: -45px
+  right: -45px
+  border-width: 0
+  border-radius: 4px
+  &:before
+    content: ""
+    width: 24px
+    height: 2px
+    position: absolute
+    top: 14px
+    left: 3px
+    transform: rotate(45deg)
+    background-color: #f16d7f
+  &:after
+    content: ""
+    width: 24px
+    height: 2px
+    position: absolute
+    top: 14px
+    left: 3px
+    transform: rotate(-45deg)
+    background-color: #f16d7f

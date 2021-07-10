@@ -1,0 +1,244 @@
+.index__products
+  margin-bottom: 110px
+
+.products
+  width: 850px
+  margin-bottom: 110px
+  &__container
+    width: 1140px
+    margin: auto
+  &__top
+    margin-bottom: 60px
+  &__head
+    color: #222222
+    font-size: 30px
+    font-weight: 700
+    letter-spacing: 0.75px
+    padding-bottom: 16px
+    line-height: 27px
+    text-align: center
+  &__text
+    color: #9f9f9f
+    font-size: 14px
+    font-weight: 400
+    letter-spacing: 0.35px
+    line-height: 15px
+    text-align: center
+  //&__list
+  //  display: flex
+  //  justify-content: space-between
+  //  flex-wrap: wrap
+  //  margin-bottom: 15px
+  &__item
+    width: 260px
+    overflow: hidden
+    margin-right: 32px
+    margin-bottom: 35px
+    position: relative
+    transition: transform 0.3s
+    &:hover
+      box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16)
+      background-color: #ffffff
+      transform: scale(1.05)
+    &:hover .products__link-img
+      filter: brightness(55%)
+    &:hover .product__hover_cart
+      visibility: visible
+    &:hover .product__hover_switch
+      visibility: visible
+    &:hover .product__hover_like
+      visibility: visible
+  &__list
+    display: flex
+    flex-wrap: wrap
+    margin-bottom: 15px
+    margin-right: -30px
+  &__link-img
+    display: block
+    width: 260px
+    height: 280px
+  &__link-name
+    color: #222222
+    font-size: 13px
+    font-weight: 700
+    text-transform: uppercase
+    text-decoration: none
+    line-height: 13px
+  &__link-price
+    color: #f16d7f
+    font-size: 16px
+    font-weight: 700
+    text-transform: uppercase
+    margin-top: 17px
+    line-height: 16px
+  &__name
+    padding: 20px 15px
+
+
+
+
+
+.product__hover_cart
+  position: absolute
+  top: 100px
+  left: 70px
+  width: 123px
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 40px
+  border: 1px solid #ffffff
+  border-radius: 3px
+  color: #ffffff
+  font-size: 13px
+  font-weight: 700
+  visibility: hidden
+  transition: background-color 0.3s
+  &:hover
+    background-color: #f16d7f
+  &:active
+    color: #f16d7f
+    background-color: #ffffff
+  &-img
+    margin-right: 8px
+
+
+.product__hover_switch
+  position: absolute
+  top: 148px
+  left: 70px
+  width: 57px
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 40px
+  border: 1px solid #ffffff
+  border-radius: 3px
+  color: #ffffff
+  font-size: 13px
+  font-weight: 700
+  visibility: hidden
+  transition: background-color 0.3s
+  &:hover
+    background-color: #f16d7f
+  &::after
+    content: ""
+    position: absolute
+    width: 22px
+    height: 12px
+    top: 13px
+    left: 17px
+    background-image: url("../../img/recycle.svg")
+
+.product__hover_like
+  position: absolute
+  top: 148px
+  left: 137px
+  width: 57px
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 40px
+  border: 1px solid #ffffff
+  border-radius: 3px
+  color: #ffffff
+  font-size: 13px
+  font-weight: 700
+  visibility: hidden
+  transition: background-color 0.3s
+  &:hover
+    background-color: #f16d7f
+
+
+
+
+.products__all-button
+  display: flex
+  justify-content: center
+
+.products__all-link
+  height: 48px
+  background-color: #f16d7f
+  color: #ffffff
+  font-size: 16px
+  font-weight: 700
+  letter-spacing: 0.4px
+  padding: 0 24px
+  line-height: 48px
+  text-decoration: none
+  border: 1px solid #f16d7f
+  -webkit-transition: color, background-color 0.3s
+  transition: color, background-color 0.3s
+  &:hover
+    color: #f16d7f
+    background-color: #ffffff
+  &:hover i
+    color: #f16d7f
+  & i
+    margin-left: 10px
+    color: #fff
+    width: 16px
+
+
+
+
+
+
+.pages
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  -webkit-box-pack: justify
+  -ms-flex-pack: justify
+  justify-content: space-between
+  &__list
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    padding: 0 7px
+    border-radius: 3px
+    border: 1px solid #ebebeb
+    background-color: #ffffff
+  &__link
+    display: block
+    padding: 15px 8px
+    color: #c4c4c4
+    font-size: 16px
+    font-weight: 700
+    line-height: 13px
+  &:hover
+    color: #f16d7f
+  &__dots
+    display: block
+    padding: 15px 0
+    color: #c4c4c4
+    font-size: 16px
+    font-weight: 700
+    line-height: 13px
+  &__control
+    color: #c4c4c4
+    &:hover
+      color: #f16d7f
+
+  &__active
+    color: #f16d7f
+  &__all-products
+    width: 150px
+    height: 44px
+    background-color: #fff
+    color: #f16d7f
+    font-size: 16px
+    font-weight: 700
+    letter-spacing: 0.4px
+    line-height: 44px
+    text-decoration: none
+    border-radius: 3px
+    border: 1px solid #ef5b70
+    text-align: center
+    -webkit-transition: color, background-color 0.3s
+    transition: color, background-color 0.3s
+    &:hover
+      color: #fff
+      background-color: #f16d7f
