@@ -1,5 +1,6 @@
 # clothing-store
 Website developed in the learning process on JavaScript course in GeekBrains.
+
 ![screen-1](https://user-images.githubusercontent.com/48284147/162563990-ab1eb7f5-abc9-489f-98d5-6086b0bf2028.jpg)
 
 Development website by layout. HTML, CSS (SASS)
@@ -18,6 +19,7 @@ Additionally, on Vanilla JS:
 - carousel of customer reviews
 - sidebar accordion
 
-run:
+
+Run:
 nodemon server/main.js
 http://localhost:3000/
