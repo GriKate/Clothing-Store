@@ -13,10 +13,10 @@ Implemented on JavaScript, Vue.js components with global registration, OOP, Fetc
 Server side - Node.js, Express. Data is stored in JSON.
 
 Additionally, on vanilla JS:
-• sorting products by price, by entering price values or using sliders
-• searching for a product by the string, included in product name
-• pagination
-• carousel of customer reviews
+• sorting products by price, by entering price values or using sliders \
+• searching for a product by the string, included in product name \
+• pagination \
+• carousel of customer reviews \
 • sidebar accordion
 
 
