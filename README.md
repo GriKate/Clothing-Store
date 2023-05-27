@@ -1,5 +1,5 @@
 # clothing-store
-Website developed in the learning process on JavaScript course in GeekBrains.
+Website developed on the JavaScript course in GeekBrains.
 
 ![screen-1](https://user-images.githubusercontent.com/48284147/162563990-ab1eb7f5-abc9-489f-98d5-6086b0bf2028.jpg)
 
