@@ -5,7 +5,7 @@ Website developed on the JavaScript course in GeekBrains.
 
 Implemented on HTML, CSS (SASS), JavaScript, Vue.js components with global registration, OOP, Fetch Api. \
 Server side - Node.js, Express. Data is stored in JSON. \
-Layout in .psd \
+Layout in .psd 
 
 Functionality of adding products to the cart, 
 change product quantity in cart, delete product from cart. 
