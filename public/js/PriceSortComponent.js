@@ -44,7 +44,7 @@ Vue.component('priceSort', {
         this.inputMax = document.querySelector('#max-price-input');
     },
     template: `<div class="choice__section">
-                    <h3 class="choice__head">Price</h3>
+                    <span class="choice__head">Price</span>
                     <div class="choice__box">
                         <div class="choice__price_line">
                             <div class="choice__price_bar"></div>
@@ -52,13 +52,13 @@ Vue.component('priceSort', {
                                 class="choice__price_handle handle-min"
                                 id="min-price-button"
                                 @mousedown.prevent="priceBtn($event)"
-                                style="left: -6px;">
+                                >
                             </button>
                             <button
                                 class="choice__price_handle handle-max"
                                 id="max-price-button"
                                 @mousedown.prevent="priceBtn($event)"
-                                style="right: -6px;">
+                                >
                             </button>
                         </div>
                         <div class="choice__price">

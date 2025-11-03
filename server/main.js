@@ -23,3 +23,5 @@ app.use('/mycart', express.static('public/cart.html'));
 app.use('/cart', cart);
 
 app.listen(3000, () => console.log('Listen on port 3000...'));
+
+module.exports = app;
