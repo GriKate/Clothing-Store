@@ -1,10 +1,10 @@
 const express = require('express');
 const fs = require('fs');
 const http = require('http');
-const catalog = require('./catalog');
-const product = require('./product');
-const colors = require('./colors');
-const cart = require('./cart');
+const catalog = require('./catalog.js');
+const product = require('./product.js');
+const colors = require('./colors.js');
+const cart = require('./cart.js');
 const app = express();
 
 app.use(express.json());
