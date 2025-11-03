@@ -17,12 +17,12 @@ app.use(express.json());
 // app.use('/', express.static('public'));
 
 // app.use('/catalog', express.static('public/catalog.html'));
-app.use('/goods', catalog);
+// app.use('/goods', catalog);
 
 // app.use('/product', express.static('public/product.html'));
-app.use('/entity', product);
+// app.use('/entity', product);
 
-app.use('/colors', colors);
+// app.use('/colors', colors);
 
 // app.use('/cart', express.static('public/cart.html'));
 app.get('/cart', (req, res) => {
@@ -30,7 +30,7 @@ app.get('/cart', (req, res) => {
         res.send(data);
     })
 });
-app.use('/getCart', cart);
+// app.use('/getCart', cart);
 
 app.get('/test', (req, res) => {
     res.send('test');
