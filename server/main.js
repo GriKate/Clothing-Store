@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const fs = require('fs');
 const http = require('http');
 const catalog = require('./catalog.js');
@@ -6,6 +7,10 @@ const product = require('./product.js');
 const colors = require('./colors.js');
 const cart = require('./cart.js');
 const app = express();
+
+app.use(cors({
+    origin: '*'
+}));
 
 app.use(express.json());
 
