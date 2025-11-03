@@ -64,6 +64,7 @@
   .choice__section {
     width: 260px; }
   .choice__head {
+    display: block;
     margin-bottom: 25px;
     color: #6f6e6e;
     font-size: 14px;
@@ -189,6 +190,12 @@
     font-weight: 400;
     border: 1px solid #eaeaea;
     outline: none; }
+
+#min-price-button {
+  left: -6px; }
+
+#max-price-button {
+  right: -6px; }
 
 .sort {
   width: 850px;
