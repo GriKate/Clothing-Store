@@ -27,6 +27,41 @@ app.use('/colors', colors);
 app.use('/mycart', express.static('public/cart.html'));
 app.use('/cart', cart);
 
-app.listen(3000, () => console.log('Listen on port 3000...'));
+app.get('/test', (req, res) => {
+    res.send('test');
+});
+
+app.get('/j', (req, res) => {
+  res.json({ message: 'Hello from Express on Vercel!' });
+});
+
+// app.listen(3000, () => console.log('Listen on port 3000...'));
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 3000;
+
+    app.listen(PORT, () => {
+        console.log(`Сервер запущен на порту ${PORT}`);
+    });
+}
 
 module.exports = app;
+
+
+
+// app.get('/a', (req, res) => {
+//   res.json({ message: 'Hello from Express on Vercel!' });
+// });
+
+// app.get('/test', (req, res) => {
+//     res.send('test');
+// });
+
+// if (process.env.NODE_ENV !== 'production') {
+//     const PORT = process.env.PORT || 3000;
+
+//     app.listen(PORT, () => {
+//         console.log(`Сервер запущен на порту ${PORT}`);
+//     });
+// }
+
+// export default app;
