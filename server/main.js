@@ -14,22 +14,22 @@ app.use(cors({
 
 app.use(express.json());
 
-// app.use('/', express.static('public'));
+app.use('/', express.static('public'));
 
-// app.use('/catalog', express.static('public/catalog.html'));
+app.use('/catalog', express.static('public/catalog.html'));
 app.use('/goods', catalog);
 
-// app.use('/product', express.static('public/product.html'));
+app.use('/product', express.static('public/product.html'));
 app.use('/entity', product);
 
 app.use('/colors', colors);
 
-// app.use('/cart', express.static('public/cart.html'));
-app.get('/cart', (req, res) => {
-    fs.readFile('server/db/getBasket.json', 'utf-8', (err, data) => {
-        res.send(data);
-    })
-});
+app.use('/cart', express.static('public/cart.html'));
+// app.get('/cart', (req, res) => {
+//     fs.readFile('server/db/getBasket.json', 'utf-8', (err, data) => {
+//         res.send(data);
+//     })
+// });
 app.use('/getCart', cart);
 
 app.get('/test', (req, res) => {
