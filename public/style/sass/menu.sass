@@ -1,0 +1,119 @@
+.menu
+  width: 100%
+  background-color: #ffffff
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.17)
+  &__container
+    margin: auto
+    width: 1140px
+    height: 55px
+    display: flex
+    justify-content: center
+    background-color: #ffffff
+  &__link
+    display: block
+    padding: 20px 24px
+    color: #222222
+    font-size: 14px
+    font-weight: 700
+    text-transform: uppercase
+    text-decoration: none
+    line-height: 12px
+    &_active
+      border-bottom: 3px solid #f16d7f
+  &__list
+    display: flex
+    background-color: #fff
+  &__item
+    position: relative
+    &:hover .menu-drop
+      display: flex
+
+
+
+
+.menu-drop
+  position: absolute
+  display: none
+  border-radius: 5px
+  border: 1px solid #ececec
+  background-color: #ffffff
+  padding: 12px 25px
+  top: 45px
+  z-index: 10
+  &::before
+    content: ""
+    width: 12px
+    height: 12px
+    position: absolute
+    top: -6px
+    left: 45px
+    transform: rotate(45deg)
+    border-top: 1px solid #e8e8e8
+    border-left: 1px solid #e8e8e8
+    background-color: #fff
+  &__head
+    display: block
+    color: #232323
+    font-size: 14px
+    font-weight: 400
+    text-transform: uppercase
+    letter-spacing: 0.35px
+    border-bottom: 1px solid #e8e8e8
+    padding: 8px 0
+    margin: 0 0 8px 0
+  &__link
+    display: block
+    color: #646464
+    font-size: 14px
+    font-weight: 400
+    letter-spacing: 0.35px
+    line-height: 12px
+    padding: 8px 0
+    &:hover
+      color: #f16d7f
+  &__box
+    width: 235px
+    margin-right: 45px
+    &:last-of-type
+      margin-right: 0
+  &__sale
+    width: 255px
+    height: 118px
+    margin-left: -20px
+    position: relative
+  &__list
+    margin-bottom: 12px
+  &__sale-text
+    position: absolute
+    top: 60px
+    left: 175px
+    color: #fff
+    font-weight: 700
+    font-size: 22px
+    line-height: 25px
+
+.drop__last
+  right: 0px
+  &::before
+    content: ""
+    width: 12px
+    height: 12px
+    position: absolute
+    top: -6px
+    left: auto
+    right: 55px
+    transform: rotate(45deg)
+    border-top: 1px solid #e8e8e8
+    border-left: 1px solid #e8e8e8
+    background-color: #fff
+
+
+.browse-drop
+  top: 36px
+  left: 0
+
+.cart-drop
+  display: none
+  top: 70px
+  left: 0
+  padding: 20px 15px

@@ -51,12 +51,16 @@ Vue.component('priceSort', {
                             <button 
                                 class="choice__price_handle handle-min"
                                 id="min-price-button"
+                                aria-label="Min Price"
+                                title="Min Price"
                                 @mousedown.prevent="priceBtn($event)"
                                 >
                             </button>
                             <button
                                 class="choice__price_handle handle-max"
                                 id="max-price-button"
+                                aria-label="Max Price"
+                                title="Max Price"
                                 @mousedown.prevent="priceBtn($event)"
                                 >
                             </button>

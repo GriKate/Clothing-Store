@@ -1,4 +1,4 @@
-Vue.component('error', {
+Vue.component('error-component', {
     data() {
         return {
             text: '',
@@ -12,7 +12,7 @@ Vue.component('error', {
     template: `<div class="error-wrapper" v-if="text">
                     <div class="error-block">
                         <p class="error-msg">
-                            <button class="close-btn" @click="setText('')"></button>
+                            <button class="close-btn" @click="setText('')" aria-label="close"></button>
                             {{text}}
                         </p>
                     </div>

@@ -1,0 +1,117 @@
+.menu {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.17); }
+  .menu__container {
+    margin: auto;
+    width: 1140px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff; }
+  .menu__link {
+    display: block;
+    padding: 20px 24px;
+    color: #222222;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 12px; }
+    .menu__link_active {
+      border-bottom: 3px solid #f16d7f; }
+  .menu__list {
+    display: flex;
+    background-color: #fff; }
+  .menu__item {
+    position: relative; }
+    .menu__item:hover .menu-drop {
+      display: flex; }
+
+.menu-drop {
+  position: absolute;
+  display: none;
+  border-radius: 5px;
+  border: 1px solid #ececec;
+  background-color: #ffffff;
+  padding: 12px 25px;
+  top: 45px;
+  z-index: 10; }
+  .menu-drop::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: -6px;
+    left: 45px;
+    transform: rotate(45deg);
+    border-top: 1px solid #e8e8e8;
+    border-left: 1px solid #e8e8e8;
+    background-color: #fff; }
+  .menu-drop__head {
+    display: block;
+    color: #232323;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.35px;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 8px 0;
+    margin: 0 0 8px 0; }
+  .menu-drop__link {
+    display: block;
+    color: #646464;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.35px;
+    line-height: 12px;
+    padding: 8px 0; }
+    .menu-drop__link:hover {
+      color: #f16d7f; }
+  .menu-drop__box {
+    width: 235px;
+    margin-right: 45px; }
+    .menu-drop__box:last-of-type {
+      margin-right: 0; }
+  .menu-drop__sale {
+    width: 255px;
+    height: 118px;
+    margin-left: -20px;
+    position: relative; }
+  .menu-drop__list {
+    margin-bottom: 12px; }
+  .menu-drop__sale-text {
+    position: absolute;
+    top: 60px;
+    left: 175px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 25px; }
+
+.drop__last {
+  right: 0px; }
+  .drop__last::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: -6px;
+    left: auto;
+    right: 55px;
+    transform: rotate(45deg);
+    border-top: 1px solid #e8e8e8;
+    border-left: 1px solid #e8e8e8;
+    background-color: #fff; }
+
+.browse-drop {
+  top: 36px;
+  left: 0; }
+
+.cart-drop {
+  display: none;
+  top: 70px;
+  left: 0;
+  padding: 20px 15px; }
+
+/*# sourceMappingURL=menu.css.map */

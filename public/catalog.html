@@ -3,17 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Brand</title>
-    <link rel="stylesheet" href="css/sass/all.css">
-    <link rel="stylesheet" href="css/sass/header.css">
-    <link rel="stylesheet" href="css/sass/menu.css">
-    <link rel="stylesheet" href="css/sass/breadcrumbs.css">
-    <link rel="stylesheet" href="css/sass/catalog-page.css">
-    <link rel="stylesheet" href="css/sass/catalog-products.css">
-    <link rel="stylesheet" href="css/sass/advantage.css">
-    <link rel="stylesheet" href="css/sass/review__subscribe.css">
-    <link rel="stylesheet" href="css/sass/footer.css">
-    <link rel="stylesheet" href="css/sass/error.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Catalog - BRAND</title>
+    <link rel="stylesheet" href="style/css/all.css">
+    <link rel="stylesheet" href="style/css/header.css">
+    <link rel="stylesheet" href="style/css/menu.css">
+    <link rel="stylesheet" href="style/css/breadcrumbs.css">
+    <link rel="stylesheet" href="style/css/catalog-page.css">
+    <link rel="stylesheet" href="style/css/catalog-products.css">
+    <link rel="stylesheet" href="style/css/advantage.css">
+    <link rel="stylesheet" href="style/css/review__subscribe.css">
+    <link rel="stylesheet" href="style/css/footer.css">
+    <link rel="stylesheet" href="style/css/error.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
@@ -31,437 +32,39 @@
                         </a>
                     </div>
 
-                    <search ref="search"></search>
+                    <search-component ref="search"></search-component>
 
                 </div>
                 <div class="header__right">
 
-                    <cart ref="cart"></cart>
+                    <cart-component ref="cart"></cart-component>
 
-                    <div class="pink__button"><a href="#" class="pink__button-link">My Account<i class="fas fa-caret-down"></i></a></div>
+                    <div class="pink__button">
+                        <a href="#" class="pink__button-link">
+                            My Account<i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </header>
 
-        <nav class="menu">
-            <div class="menu__container">
-                <ul class="menu__list">
-                    <li class="menu__item">
-                        <a href="index.html" class="menu__link">Home</a>
-                        <div class="menu-drop">
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Blazers</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Denim</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Leggings/Pants</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Skirts/Shorts</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Accessories</a></li>
-                                </ul>
-                            </div>
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                </ul>
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                </ul>
-                            </div>
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                </ul>
-                                <div class="menu-drop__sale">
-                                    <img src="img/menu_sale.jpg" alt="super sale" class="menu-drop__sale-img">
-                                    <p class="menu-drop__sale-text">SUPER<br>SALE!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="menu__item">
-                        <a href="catalog.html" class="menu__link menu__link_active">Men</a>
-                        <div class="menu-drop">
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Blazers</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Denim</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Leggings/Pants</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Skirts/Shorts</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Accessories</a></li>
-                                </ul>
-                            </div>
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                </ul>
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                </ul>
-                            </div>
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                </ul>
-                                <div class="menu-drop__sale">
-                                    <img src="img/menu_sale.jpg" alt="super sale" class="menu-drop__sale-img">
-                                    <p class="menu-drop__sale-text">SUPER<br>SALE!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="menu__item">
-                        <a href="catalog.html" class="menu__link">Women</a>
-                        <div class="menu-drop">
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Blazers</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Denim</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Leggings/Pants</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Skirts/Shorts</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Accessories</a></li>
-                                </ul>
-                            </div>
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                </ul>
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                </ul>
-                            </div>
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                </ul>
-                                <div class="menu-drop__sale">
-                                    <img src="img/menu_sale.jpg" alt="super sale" class="menu-drop__sale-img">
-                                    <p class="menu-drop__sale-text">SUPER<br>SALE!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="menu__item">
-                        <a href="catalog.html" class="menu__link">Kids</a>
-                        <div class="menu-drop">
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Blazers</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Denim</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Leggings/Pants</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Skirts/Shorts</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Accessories</a></li>
-                                </ul>
-                            </div>
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                </ul>
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                </ul>
-                            </div>
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                </ul>
-                                <div class="menu-drop__sale">
-                                    <img src="img/menu_sale.jpg" alt="super sale" class="menu-drop__sale-img">
-                                    <p class="menu-drop__sale-text">SUPER<br>SALE!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="menu__item">
-                        <a href="catalog.html" class="menu__link">Accessories</a>
-                        <div class="menu-drop menu-drop__last">
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Blazers</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Denim</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Leggings/Pants</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Skirts/Shorts</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Accessories</a></li>
-                                </ul>
-                            </div>
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                </ul>
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                </ul>
-                            </div>
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                </ul>
-                                <div class="menu-drop__sale">
-                                    <img src="img/menu_sale.jpg" alt="super sale" class="menu-drop__sale-img">
-                                    <p class="menu-drop__sale-text">SUPER<br>SALE!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="menu__item">
-                        <a href="catalog.html" class="menu__link">Featured</a>
-                        <div class="menu-drop menu-drop__last">
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Blazers</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Denim</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Leggings/Pants</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Skirts/Shorts</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Accessories</a></li>
-                                </ul>
-                            </div>
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                </ul>
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                </ul>
-                            </div>
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                </ul>
-                                <div class="menu-drop__sale">
-                                    <img src="img/menu_sale.jpg" alt="super sale" class="menu-drop__sale-img">
-                                    <p class="menu-drop__sale-text">SUPER<br>SALE!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="menu__item">
-                        <a href="catalog.html" class="menu__link">Hot deals</a>
-                        <div class="menu-drop menu-drop__last">
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Blazers</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Denim</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Leggings/Pants</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Skirts/Shorts</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Accessories</a></li>
-                                </ul>
-                            </div>
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                </ul>
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                </ul>
-                            </div>
-                            <div class="menu-drop__box">
-                                <h3 class="menu-drop__head">Women</h3>
-                                <ul class="menu-drop__list">
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Dresses</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Tops</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Sweaters/Knits</a></li>
-                                    <li class="menu-drop__item"><a href="catalog.html" class="menu-drop__link">Jackets/Coats</a></li>
-                                </ul>
-                                <div class="menu-drop__sale">
-                                    <img src="img/menu_sale.jpg" alt="super sale" class="menu-drop__sale-img">
-                                    <p class="menu-drop__sale-text">SUPER<br>SALE!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <menu-header></menu-header>
+
     </div>
 
     <div class="empty"></div>
 
-    <nav class="breadcrumbs">
-        <div class="breadcrumbs__container">
-            <h2 class="breadcrumbs__head">new arrivals</h2>
-            <ul class="breadcrumbs__list">
-                <li class="breadcrumbs__item">
-                    <a href="index.html" class="breadcrumbs__link">home</a>
-                </li>
-                <li class="breadcrumbs__item">
-                    <a href="catalog.html" class="breadcrumbs__link">men</a>
-                </li>
-                <li class="breadcrumbs__item">
-                    <a href="#" class="breadcrumbs__link">new arrivals</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <breadcrumbs-component></breadcrumbs-component>
 
     <section class="catalogue">
         <div class="catalogue__container">
-            <nav class="catalogue-menu">
-                <div class="catalogue-menu__section">
-                    <a href="#menu1" class="catalogue-menu__head">Category<i class="fas fa-caret-down catalogue-menu__triangle catalogue-menu__triangle_active"></i></a>
-                    <ul id="menu1" class="catalogue-menu__list catalogue-menu__list_active">
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Accessories</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Bags</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Denim</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Hoodies & Sweatshirts</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Jackets & Coats</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Pants</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Polos</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Bags</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Shoes</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Shorts</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Sweaters & Knits</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">T-Shirts</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Tanks</a></li>
-                    </ul>
-                </div>
-                <div class="catalogue-menu__section">
-                    <a href="#menu2" class="catalogue-menu__head">brand<i class="fas fa-caret-down catalogue-menu__triangle"></i></a>
-                    <ul id="menu2" class="catalogue-menu__list">
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Accessories</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Bags</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Denim</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Hoodies & Sweatshirts</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Jackets & Coats</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Pants</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Polos</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Bags</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Shoes</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Shorts</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Sweaters & Knits</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">T-Shirts</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Tanks</a></li>
-                    </ul>
-                </div>
-                <div class="catalogue-menu__section">
-                    <a href="#menu3" class="catalogue-menu__head">dESIGNER<i class="fas fa-caret-down catalogue-menu__triangle"></i></a>
-                    <ul id="menu3" class="catalogue-menu__list">
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Accessories</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Bags</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Denim</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Hoodies & Sweatshirts</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Jackets & Coats</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Pants</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Polos</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Bags</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Shoes</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Shorts</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Sweaters & Knits</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">T-Shirts</a></li>
-                        <li class="catalogue-menu__item"><a href="catalog.html" class="catalogue-menu__link">Tanks</a></li>
-                    </ul>
-                </div>
-            </nav>
+            
+            <menu-catalog></menu-catalog>
 
             <div class="products">
                 <div class="choice">
                     <div class="choice__section">
-                        <h3 class="choice__head">Trending now</h3>
+                        <span class="choice__head">Trending now</span>
                         <div class="choice__box">
                             <ul class="choice__trends">
                                 <li class="trends__name"><a href="#" class="trends__link">Bohemian</a></li>
@@ -490,7 +93,7 @@
                     </div>
                 </div>
 
-                <catalog ref="catalog" num="9"></catalog>
+                <catalog-component ref="catalog" num="9"></catalog-component>
 
                 <catalog-pages ref="catalogPages"></catalog-pages>
 
@@ -501,27 +104,27 @@
         <div class="advantage__container clearfix">
             <ul class="advantage__list">
                 <li class="advantage__item">
-                    <img src="img/track.svg" alt="" class="advantage__pic">
+                    <img src="img/track.svg" alt="truck" class="advantage__pic">
                     <article class="advantage__description">
-                        <h2 class="advantage__head">Free Delivery</h2>
+                        <span class="advantage__head">Free Delivery</span>
                         <p class="advantage__text">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
                     </article>
                 </li>
                 <li class="advantage__item">
                     <div class="advantage__icon">
-                        <img src="img/sales.svg" alt="" class="advantage__pic">
+                        <img src="img/sales.svg" alt="sales" class="advantage__pic">
                     </div>
                     <article class="advantage__description">
-                        <h2 class="advantage__head">Sales & discounts</h2>
+                        <span class="advantage__head">Sales & discounts</span>
                         <p class="advantage__text">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
                     </article>
                 </li>
                 <li class="advantage__item">
                     <div class="advantage__icon">
-                        <img src="img/crown.svg" alt="" class="advantage__pic">
+                        <img src="img/crown.svg" alt="crown" class="advantage__pic">
                     </div>
                     <article class="advantage__description">
-                        <h2 class="advantage__head">Quality assurance</h2>
+                        <span class="advantage__head">Quality assurance</span>
                         <p class="advantage__text">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
                     </article>
                 </li>
@@ -529,15 +132,15 @@
         </div>
     </section>
 
-    <section class="rest__info">
+    <div class="rest__info">
         <div class="rest__info-container">
-            <section class="review">
+            <div class="review">
                 <div class="review__slider">
                     <ul class="review__list" id="reviews">
                         <li class="review__item review_show">
                             <div class="review__wrap">
                                 <div class="review__photo">
-                                    <img src="img/customer_photo.png" alt="" class="review__img">
+                                    <img src="img/customer_photo.png" alt="customer" class="review__img">
                                 </div>
                                 <div class="review__text">
                                     <p class="customer__review">“Vestibulum quis porttitor dui! Quisque viverra nunc mi,
@@ -550,7 +153,7 @@
                         <li class="review__item">
                             <div class="review__wrap">
                                 <div class="review__photo">
-                                    <img src="img/customer_photo.png" alt="" class="review__img">
+                                    <img src="img/customer_photo.png" alt="customer" class="review__img">
                                 </div>
                                 <div class="review__text">
                                     <p class="customer__review">“Vestibulum quis porttitor dui! Quisque viverra nunc mi,
@@ -565,7 +168,7 @@
                         <li class="review__item">
                             <div class="review__wrap">
                                 <div class="review__photo">
-                                    <img src="img/customer_photo.png" alt="" class="review__img">
+                                    <img src="img/customer_photo.png" alt="customer" class="review__img">
                                 </div>
                                 <div class="review__text">
                                     <p class="customer__review">“Vestibulum quis porttitor dui! Quisque viverra nunc mi,
@@ -578,27 +181,27 @@
                         </li>
                     </ul>
                     <div class="review__slider-buttons" id="review__buttons">
-                        <div class="review__button review__button_pink"></div>
-                        <div class="review__button"></div>
-                        <div class="review__button"></div>
+                        <button class="review__button review__button_pink" aria-label="next review" title="next review"></button>
+                        <button class="review__button" aria-label="next review" title="next review"></button>
+                        <button class="review__button" aria-label="next review" title="next review"></button>
                     </div>
                 </div>
-            </section>
-
-            <section class="subscribe">
+            </div>
+            <div class="subscribe">
                 <div class="subscribe__box">
                     <div class="subscribe__text">
                         <p class="subscribe__text-big">Subscribe</p>
                         <p class="subscribe__text-mini">FOR OUR NEWSLETTER AND PROMOTION</p>
                     </div>
                     <form action="#" class="subscribe__form">
-                        <input type="email" placeholder="Enter Your Email" class="subscribe__email">
-                        <a href="#" class="subscribe__button">Subscribe</a>
+                        <input type="email" name="email" placeholder="Enter Your Email" class="subscribe__email">
+                        <button class="subscribe__button">Subscribe</button>
                     </form>
                 </div>
-            </section>
+            </div>
         </div>
-    </section>
+    </div>
+
     <footer class="footer__info">
         <div class="footer__info-container">
             <div class="footer__info-right">
@@ -613,74 +216,9 @@
                     <p class="about__brand-text">Efficiently plagiarize 24/365 action items and focused infomediaries. Distinctively seize superior initiatives for wireless technologies. Dynamically optimize.</p>
                 </div>
             </div>
-            <nav class="footer__info-left">
-                <div class="footer__menu">
-                    <h2 class="footer__menu-head">COMPANY</h2>
-                    <div class="company__menu">
-                        <ul class="company__menu-list">
-                            <li class="info__menu-item">
-                                <a href="index.html" class="info__menu-link">Home</a>
-                            </li>
-                            <li class="info__menu-item">
-                                <a href="#" class="info__menu-link">Shop</a>
-                            </li>
-                            <li class="info__menu-item">
-                                <a href="#" class="info__menu-link">About</a>
-                            </li>
-                            <li class="info__menu-item">
-                                <a href="#" class="info__menu-link">How It Works</a>
-                            </li>
-                            <li class="info__menu-item">
-                                <a href="#" class="info__menu-link">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="footer__menu">
-                    <h2 class="footer__menu-head">INFORMATION</h2>
-                    <div class="company__menu">
-                        <ul class="info__menu-list">
-                            <li class="info__menu-item">
-                                <a href="#" class="info__menu-link">Terms & Condition</a>
-                            </li>
-                            <li class="info__menu-item">
-                                <a href="#" class="info__menu-link">Privacy Policy</a>
-                            </li>
-                            <li class="info__menu-item">
-                                <a href="#" class="info__menu-link">How to Buy</a>
-                            </li>
-                            <li class="info__menu-item">
-                                <a href="#" class="info__menu-link">How to Sell</a>
-                            </li>
-                            <li class="info__menu-item">
-                                <a href="#" class="info__menu-link">Promotion</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="footer__menu">
-                    <h2 class="footer__menu-head">SHOP CATEGORY</h2>
-                    <div class="company__menu">
-                        <ul class="shop__menu-list">
-                            <li class="info__menu-item">
-                                <a href="catalog.html" class="info__menu-link">Men</a>
-                            </li>
-                            <li class="info__menu-item">
-                                <a href="catalog.html" class="info__menu-link">Women</a>
-                            </li>
-                            <li class="info__menu-item">
-                                <a href="catalog.html" class="info__menu-link">Child</a>
-                            </li>
-                            <li class="info__menu-item">
-                                <a href="catalog.html" class="info__menu-link">Apparel</a>
-                            </li>
-                            <li class="info__menu-item">
-                                <a href="catalog.html" class="info__menu-link">Browse All</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            
+            <menu-footer></menu-footer>
+
         </div>
     </footer>
     <footer class="footer__copywright">
@@ -688,32 +226,46 @@
             <p class="copywright__text">© 2017 Brand All Rights Reserved.</p>
             <div class="social">
                 <ul class="social__list">
-                    <li class="social__item"><a href="#" class="social__link"><i class="fab fa-facebook-f"></i></a></li>
-                    <li class="social__item"><a href="#" class="social__link"><i class="fab fa-twitter"></i></a></li>
-                    <li class="social__item"><a href="#" class="social__link grey__color"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li class="social__item"><a href="#" class="social__link"><i class="fab fa-pinterest-p"></i></a></li>
-                    <li class="social__item"><a href="#" class="social__link"><i class="fab fa-google-plus-g"></i></a></li>
+                    <li class="social__item">
+                        <button class="social__link" aria-label="facebook"><i class="fab fa-facebook-f"></i></button>
+                    </li>
+                    <li class="social__item">
+                        <button class="social__link" aria-label="twitter"><i class="fab fa-twitter"></i></button>
+                    </li>
+                    <li class="social__item">
+                        <button class="social__link" aria-label="linkedin"><i class="fab fa-linkedin-in"></i></button>
+                    </li>
+                    <li class="social__item">
+                        <button class="social__link" aria-label="pinterest"><i class="fab fa-pinterest-p"></i></button>
+                    </li>
+                    <li class="social__item">
+                        <button class="social__link" aria-label="google-plus"><i class="fab fa-google-plus-g"></i></button>
+                    </li>
                 </ul>
             </div>
         </div>
     </footer>
-    <error ref="error"></error>
+    <error-component ref="error"></error-component>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 <script defer src="js/main.js"></script>
+<script src="js/MenuHeaderComponent.js"></script>
 <script src="js/SearchComponent.js"></script>
+<script src="js/CartComponent.js"></script>
+<script src="js/BreadcrumbsComponent.js"></script>
+<script src="js/MenuCatalogComponent.js"></script>
 <script src="js/SizeSortComponent.js"></script>
 <script src="js/PriceSortComponent.js"></script>
 <script src="js/CatalogComponent.js"></script>
-<script src="js/CatalogPagesComponent.js"></script>
-<script src="js/CartComponent.js"></script>
-<script src="js/ErrorComponent.js"></script>
 <script src="js/ProductComponent.js"></script>
+<script src="js/CatalogPagesComponent.js"></script>
+<script src="js/ErrorComponent.js"></script>
+<script defer src="js/carousel.js"></script>
+<script src="js/MenuFooterComponent.js"></script>
 <script defer src="js/accordeon.js"></script>
 <script defer src="js/price-sorter.js"></script>
-<script defer src="js/carousel.js"></script>
 
 </body>
 

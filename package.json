@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server/main.js",
     "dev": "nodemon server/main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch public/style/sass:public/style/css",
+    "sass-build": "sass public/style/sass:public/style/css"
   },
   "nodemonConfig": {
     "ignore": [

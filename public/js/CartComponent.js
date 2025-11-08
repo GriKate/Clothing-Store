@@ -1,7 +1,7 @@
-Vue.component('cart', {
+Vue.component('cart-component', {
     data() {
         return {
-            cartUrl: '/cart',
+            cartUrl: '/getCart',
             cartProducts: [],
             totalAmount: 0,
             productsQuantity: 0,
@@ -15,7 +15,7 @@ Vue.component('cart', {
             if (find && product.color === find.color && product.size === find.size) {
                 let currentQuantity = this.setQuantity(find.quantity, product.quantity);
 
-                this.$parent.putJson(`/cart/${product.id_product}`, {quantity: currentQuantity})
+                this.$parent.putJson(`/getCart/${product.id_product}`, {quantity: currentQuantity})
                     .then(data => {
                         if (data.result) {
                             if (!product.quantity) {
@@ -53,7 +53,7 @@ Vue.component('cart', {
         removeFromCart(item) {
             let product = this.cartProducts.find((el) => item.id_product === el.id_product);
             if (product.quantity > 1) {
-                this.$parent.putJson(`/cart/${product.id_product}`, {quantity: -1})
+                this.$parent.putJson(`/getCart/${product.id_product}`, {quantity: -1})
                     .then(data => {
                         if (data.result) {
                             product.quantity--;
@@ -62,7 +62,7 @@ Vue.component('cart', {
                     })
                     .catch(error => console.log(error))
             } else {
-                this.$parent.deleteJson(`/cart/${product.id_product}`)
+                this.$parent.deleteJson(`/getCart/${product.id_product}`)
                     .then(data => {
                         if (data.result) {
                             this.cartProducts.splice(this.cartProducts.indexOf(product), 1);
@@ -97,7 +97,7 @@ Vue.component('cart', {
     template: `<div class="header__right_cart-box">
                     <a href="cart.html" class="cart">
                         <cart-quantity :quantity-in-cart="productsQuantity"></cart-quantity>
-                        <img src="img/cart.svg" alt="" class="cart__img">
+                        <img src="img/cart.svg" alt="cart" class="cart__img">
                     </a>
                     <div class="menu-drop cart-drop">
                         <div class="menu-drop__box">
@@ -122,11 +122,14 @@ Vue.component('cartProd', {
     computed: {
         imgName() {
             return 'img/' + this.cartItem.id_product + '_' + '1.jpg';
+        },
+        imgAlt() {
+            return this.cartItem.product_name;
         }
     },
     template: `<div class="menu-drop__product">
                     <div class="menu-drop__product-container">
-                        <a href="product.html"><img :src="imgName" alt="" class="menu-drop__product-img"></a>
+                        <a href="product.html"><img :src="imgName" :alt="imgAlt" class="menu-drop__product-img"></a>
                         <div class="menu-drop__product-box">
                             <a href="product.html" class="menu-drop__product-text">{{cartItem.product_name}}</a>
                             <p class="menu-drop__product-rating">
@@ -139,7 +142,9 @@ Vue.component('cartProd', {
                             <p class="menu-drop__product-price">{{cartItem.quantity}}  x   {{cartItem.price}}</p>
                         </div>
                     </div>
-                    <a href="#" @click.prevent="$root.$refs.cart.removeFromCart(cartItem)" class="action__button"><i class="fas fa-times-circle"></i></a>
+                    <button @click.prevent="$root.$refs.cart.removeFromCart(cartItem)" class="action__button" aria-label="remove from Cart">
+                        <i class="fas fa-times-circle"></i>
+                    </button>
                 </div>`
 });
 

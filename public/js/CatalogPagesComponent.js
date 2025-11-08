@@ -72,27 +72,27 @@ Vue.component('catalogPages', {
             pages[this.currentPage - 1].classList.add('pages__active');
         },
     },
-    template: `<div class="pages">
+    template: `<nav class="pages">
                     <ul class="pages__list">
                         <div class="pages__item">
-                            <a href="catalog.html" class="pages__link" @click.prevent="pageDown($event)">
+                            <button href="catalog.html" class="pages__link" @click.prevent="pageDown($event)" aria-label="previous page" title="previous page">
                                 <i class="fas fa-chevron-left pages__control"></i>
-                            </a>
+                            </button>
                         </div>
                         <page 
-                        v-for="page of pageNums" 
-                        :key="page"
-                        :page="page"
+                            v-for="page of pageNums" 
+                            :key="page"
+                            :page="page"
                         ></page>
                         <div class="pages__item">
-                            <a href="catalog.html" class="pages__link" @click.prevent="pageUp($event)">
+                            <button href="catalog.html" class="pages__link" @click.prevent="pageUp($event)" aria-label="next page" title="next page">
                                 <i class="fas fa-chevron-right pages__control pages__active"></i>
-                            </a>
+                            </button>
                         </div> 
 <!--                            <li class="pages__item"><span class="pages__dots">.....</span></li>-->
                     </ul>
                     <a href="catalog.html" class="pages__all-products">View All</a>
-                </div>`
+                </nav>`
 });
 
 Vue.component('page', {
@@ -111,10 +111,14 @@ Vue.component('page', {
         },
     },
     template: `<li class="pages__item">
-                    <a href="catalog.html" class="pages__link page-num" :class="{pages__active:isActive}"
-                                                  @click.prevent="$root.$refs.catalog.sliceCatalog(page), 
-                                                  $root.$refs.catalogPages.pageActive($event)"
-                                                  >
-                    {{page}}</a>
+                    <button href="catalog.html" 
+                        class="pages__link page-num" 
+                        :class="{pages__active:isActive}" 
+                        :aria-label="page"
+                        @click.prevent="$root.$refs.catalog.sliceCatalog(page), 
+                        $root.$refs.catalogPages.pageActive($event)"
+                        >
+                    {{page}}
+                    </button>
                 </li>`
 });

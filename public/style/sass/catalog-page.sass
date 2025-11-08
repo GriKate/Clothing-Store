@@ -1,0 +1,240 @@
+.catalogue
+  width: 100%
+  &__container
+    width: 1140px
+    margin: 0 auto
+    padding-top: 60px
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+  &-menu
+    width: 240px
+    margin-right: 50px
+    &__section
+      margin-bottom: 18px
+    &__head
+      display: block
+      position: relative
+      height: 37px
+      padding-left: 10px
+      color: #f16d7f
+      font-size: 14px
+      font-weight: 900
+      line-height: 37px
+      text-transform: uppercase
+      border-left: 5px solid #f16d7f
+      border-bottom: 1px solid #ebebeb
+    &__triangle
+      position: absolute
+      top: 10px
+      right: 5px
+      color: #6f6e6e
+      &_active
+        position: absolute
+        top: 10px
+        right: 5px
+        color: #f16d7f
+        -webkit-transform: rotate(180deg)
+        transform: rotate(180deg)
+
+    &__list
+      display: none
+      padding: 14px 15px 14px
+      &_active
+        display: block
+        transition: .3s
+
+    &__link
+      display: block
+      color: #6f6e6e
+      font-size: 14px
+      font-weight: 400
+      line-height: 12px
+      padding: 8px 0
+      &:hover
+        color: #f16d7f
+
+
+
+
+
+
+.choice
+  width: 850px
+  margin-bottom: 25px
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  -webkit-box-pack: justify
+  -ms-flex-pack: justify
+  justify-content: space-between
+  &__section
+    width: 260px
+  &__section .size-head
+    margin-left: -20px
+  &__head
+    display: block
+    margin-bottom: 25px
+    color: #6f6e6e
+    font-size: 14px
+    font-weight: 700
+    text-transform: uppercase
+    line-height: 12px
+  &__size
+    width: 240px
+  &__trends
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    -ms-flex-wrap: wrap
+    flex-wrap: wrap
+    margin-left: -10px
+    padding-right: 50px
+
+
+
+.trends__name
+  padding-bottom: 15px
+  &:nth-child(3n) .trends__link
+    border-right: none
+
+.trends__link
+  display: block
+  padding: 0 10px
+  color: #6f6e6e
+  font-size: 14px
+  font-weight: 400
+  line-height: 12px
+  border-right: 1px solid #ebebeb
+
+.choice__size
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  -webkit-box-pack: justify
+  -ms-flex-pack: justify
+  justify-content: flex-start
+  -ms-flex-wrap: wrap
+  flex-wrap: wrap
+
+.size__value
+  width: 55px
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  justify-content: flex-start
+
+.size__input
+  margin: 0 5px 15px 0
+  display: none
+  &:checked + .size__label::after
+    display: block
+
+.size__label
+  position: relative
+  margin-bottom: 15px
+  color: #6f6e6e
+  font-size: 14px
+  font-weight: 400
+  line-height: 12px
+  text-transform: uppercase
+  &::before
+    position: absolute
+    content: ""
+    width: 13px
+    height: 13px
+    top: -1px
+    left: -20px
+    border: 1px solid #ebebeb
+    background-color: #ffffff
+  &::after
+    position: absolute
+    content: ""
+    width: 6px
+    height: 8px
+    top: -1px
+    left: -16px
+    border-right: 2px solid #f16d7f
+    border-bottom: 2px solid #f16d7f
+    -webkit-transform: rotate(45deg)
+    transform: rotate(45deg)
+    display: none
+
+
+
+
+.choice__price
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  -webkit-box-pack: justify
+  -ms-flex-pack: justify
+  justify-content: space-between
+  &_line
+    position: relative
+    width: 262px
+    height: 3px
+    margin-bottom: 18px
+    border-radius: 3px
+    background-color: #f0f0f0
+  &_bar
+    position: absolute
+    height: 3px
+    left: 0
+    width: 100%
+    background-color: #f16d7f
+  &_handle
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    width: 12px
+    height: 12px
+    box-sizing: content-box
+    padding: 0
+    border: none
+    outline: none
+    border-radius: 50%
+    background-color: #f16d7f
+    cursor: pointer
+  &_input
+    width: 55px
+    color: #6f6e6e
+    font-size: 14px
+    font-weight: 400
+    border: 1px solid #eaeaea
+    outline: none
+
+#min-price-button 
+  left: -6px
+
+#max-price-button
+  right: -6px
+
+.sort
+  width: 850px
+  padding: 10px
+  background-color: #f3f3f3
+  margin-bottom: 50px
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  &__box
+    height: 30px
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    margin-left: 10px
+  &__value
+    padding: 0 12px
+    color: #6f6e6e
+    font-size: 14px
+    font-weight: 400
+    line-height: 30px
+    border: 1px solid #ebebeb
+    border-left: none
+    background-color: #ffffff
+    &:first-child
+      border-left: 1px solid #ebebeb
+
+.triangle-grey_sort-triangle
+  margin-left: 20px

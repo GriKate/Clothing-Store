@@ -1,5 +1,17 @@
 {
-    "totalAmount": 0,
-    "productsQuantity": 0,
-    "contents": []
+    "totalAmount": 90,
+    "productsQuantity": 1,
+    "contents": [
+        {
+            "quantity": 1,
+            "id_product": 502,
+            "product_name": "Woman`s Jacket",
+            "price": 90,
+            "img": "img/cart_drop_img_2.jpg",
+            "fabric": "Cotton",
+            "designer": "Emilio Ricci",
+            "color": "",
+            "size": ""
+        }
+    ]
 }
