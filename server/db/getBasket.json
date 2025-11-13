@@ -1,7 +1,18 @@
 {
-    "totalAmount": 90,
-    "productsQuantity": 1,
+    "totalAmount": 190,
+    "productsQuantity": 2,
     "contents": [
+        {
+            "quantity": 2,
+            "id_product": 460,
+            "product_name": "Mango Cardigan",
+            "price": 50,
+            "img": "img/cart_drop_img_2.jpg",
+            "fabric": "Cotton",
+            "designer": "Emilio Ricci",
+            "color": "",
+            "size": ""
+        },
         {
             "quantity": 1,
             "id_product": 502,
@@ -10,8 +21,8 @@
             "img": "img/cart_drop_img_2.jpg",
             "fabric": "Cotton",
             "designer": "Emilio Ricci",
-            "color": "",
-            "size": ""
+            "color": "Green",
+            "size": "XXL"
         }
     ]
 }

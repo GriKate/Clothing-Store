@@ -173,7 +173,7 @@ Vue.component('cartPageProduct', {
                     </td>
                     <td class="table__body-cell">
                         <form @input.prevent="$emit('change', cartProd)" class="quantity__form">
-                            <input type="number" name="quantity" min="1" v-model="cartProd.quantity" class="quantity__input">
+                            <input type="number" name="quantity" min="1" v-model="cartProd.quantity" class="quantity__input" aria-label="quantity">
                         </form>
                         <p class="quantity__input_empty" v-if="cartProd.quantity < 1">Enter a value <br>greater than 1</p>
                     </td>
@@ -184,7 +184,7 @@ Vue.component('cartPageProduct', {
                         <p class="subtotal__value">$ {{cartProd.quantity * cartProd.price}}</p>
                     </td>
                     <td class="table__body-cell">
-                        <button @click.prevent="$emit('remove', cartProd)" class="delete-button__link">
+                        <button @click.prevent="$emit('remove', cartProd)" class="delete-button__link" aria-label="remove item">
                             <i class="fas fa-times-circle"></i>
                         </button>
                     </td>

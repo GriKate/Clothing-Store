@@ -1,4 +1,4 @@
-Vue.component('product', {
+Vue.component('product-component', {
     data() {
         return {
             urlProduct: '/entity',
@@ -63,7 +63,7 @@ Vue.component('product', {
                                         <div class="choose__drop">
                                             <p class="choose__text">CHOOSE COLOR</p>
                                             <div class="color__form">
-                                                <select name="color" id="1" required @change="setColor($event)" class="choose__list">
+                                                <select name="color" id="1" required @change="setColor($event)" class="choose__list" aria-label="choose color">
                                                     <option value="" disabled selected>Color...</option>
                                                     <color 
                                                     v-for="color of colors" 
@@ -75,8 +75,8 @@ Vue.component('product', {
                                         </div>
                                         <div class="choose__drop">
                                             <p class="choose__text">CHOOSE SIZE</p>
-                                            <div action="#" class="size__form">
-                                                <select name="size" required @change="setSize($event)" class="size__list">
+                                            <div class="size__form">
+                                                <select name="size" required @change="setSize($event)" class="size__list" aria-label="choose size">
                                                     <option value="" disabled selected>Size...</option>
                                                     <option :value="'XS'" class="size__item">XS</option>
                                                     <option :value="'S'" class="size__item">S</option>

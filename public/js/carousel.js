@@ -1,6 +1,6 @@
-let reviews = document.querySelectorAll(".review__item");
-let btnBlock = document.querySelector("#review__buttons");
-let buttons = document.querySelectorAll(".review__button");
+const reviews = document.querySelectorAll(".review__item");
+const btnBlock = document.querySelector("#review__buttons");
+const buttons = document.querySelectorAll(".review__button");
 
 btnBlock.addEventListener('click', e => {
     slideReview(e.target);
