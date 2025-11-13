@@ -1,7 +1,7 @@
 Vue.component('cartPage', {
     data() {
         return {
-            cartUrl: '/cart',
+            cartUrl: '/getCart',
             cartProducts: [],
             totalAmount: 0,
             productsQuantity: 0,
@@ -12,7 +12,7 @@ Vue.component('cartPage', {
             let product = this.cartProducts.find((el) => el.id_product === item.id_product);
 
             if (product.quantity >= 1) {
-                this.$parent.putJson(`/cart/${product.id_product}`, {quantity: product.quantity})
+                this.$parent.putJson(`/getCart/${product.id_product}`, {quantity: product.quantity})
                     .then(data => {
                         if (data.result) {
                             this.countSum();
@@ -28,7 +28,7 @@ Vue.component('cartPage', {
         },
         removeFromCart(item) {
             let product = this.cartProducts.find((el) => item.id_product === el.id_product);
-                this.$parent.deleteJson(`/cart/${product.id_product}`)
+                this.$parent.deleteJson(`/getCart/${product.id_product}`)
                     .then(data => {
                         if (data.result) {
                             this.cartProducts.splice(this.cartProducts.indexOf(product), 1);
@@ -112,30 +112,31 @@ Vue.component('cartPage', {
                         </tbody>
                     </table>
                     <div class="basket__buttons" v-if="cartProducts.length > 0">
-                        <a href="#" class="cart__button" @click="removeAll">cLEAR SHOPPING CART</a>
+                        <button class="cart__button" @click="removeAll">cLEAR SHOPPING CART</button>
                         <a href="catalog.html" class="cart__button">cONTINUE sHOPPING</a>
                     </div>
                     <div class="basket__info" v-if="cartProducts.length > 0">
-                        <form action="#" class="basket__info-form">
-                            <div class="basket__form-left">
-                                <h3 class="adress__head">Shipping Adress</h3>
-                                <select name="" id="" class="coupon__form_input">
-                                    <option value="" class="select__country">Bangladesh</option>
-                                    <option value="" class="select__country">Great Britain</option>
-                                    <option value="" class="select__country">Russia</option>
+
+                            <form class="basket__form-left">
+                                <span class="adress__head">Shipping Adress</span>
+                                <select name="state" id="" class="coupon__form_input coupon__form_input-select" required>
+                                    <option value="" class="select__country">Choose State</option>
+                                    <option value="Bangladesh" class="select__country">Bangladesh</option>
+                                    <option value="Great Britain" class="select__country">Great Britain</option>
+                                    <option value="Russia" class="select__country">Russia</option>
                                 </select>
                                 <i class="fas fa-caret-down triangle-grey select__country_triangle"></i>
-                                <input type="text" class="coupon__form_input" placeholder="State">
-                                <input type="number" class="coupon__form_input" placeholder="Postcode / Zip">
-                                <a href="#" class="coupon__form_button">get a quote</a>
-                            </div>
-                            <div class="basket__form-right">
-                                <h3 class="coupon__head">coupon  discount</h3>
+                                <input type="text" name="address" class="coupon__form_input" placeholder="Address" required>
+                                <input type="number" name="postcode" class="coupon__form_input" placeholder="Postcode / Zip" required>
+                                <button class="coupon__form_button">get a quote</button>
+                            </form>
+                            <form class="basket__form-right">
+                                <span class="coupon__head">coupon  discount</span>
                                 <p class="coupon__text">Enter your coupon code if you have one</p>
-                                <input type="text" class="coupon__form_input coupon__input" placeholder="State">
-                                <a href="#" class="coupon__form_button">Apply coupon</a>
-                            </div>
-                        </form>
+                                <input type="text" name="coupon" class="coupon__form_input coupon__input" placeholder="Coupon Number">
+                                <button class="coupon__form_button">Apply coupon</button>
+                            </form>
+
                         <div class="checkout">
                             <div class="checkout-summary">
                                 <p class="checkout-summary__subtotal">Sub total<span class="checkout-summary__subtotal subtotal-value">$ {{totalAmount}}</span></p>
@@ -153,11 +154,14 @@ Vue.component('cartPageProduct', {
     computed: {
         imgName() {
             return 'img/' + this.cartProd.id_product + '_' + '1.jpg';
+        },
+        imgAlt() {
+            return this.cartProd.product_name;
         }
     },
     template: `<tr class="table__body-row">
                     <td class="table__body-cell product__cell">
-                        <a href="product.html" class="product__img-link"><img :src="imgName" alt="" class="product__img"></a>
+                        <a href="product.html" class="product__img-link"><img :src="imgName" :alt="imgAlt" class="product__img"></a>
                         <div class="product__cell-text">
                             <a href="product.html" class="product__name">{{cartProd.product_name}}</a>
                             <p class="product__features">Color:<span class="product__features-value">{{cartProd.color}}</span></p>
@@ -169,7 +173,7 @@ Vue.component('cartPageProduct', {
                     </td>
                     <td class="table__body-cell">
                         <form @input.prevent="$emit('change', cartProd)" class="quantity__form">
-                            <input type="number" min="1" v-model="cartProd.quantity" class="quantity__input">
+                            <input type="number" name="quantity" min="1" v-model="cartProd.quantity" class="quantity__input" aria-label="quantity">
                         </form>
                         <p class="quantity__input_empty" v-if="cartProd.quantity < 1">Enter a value <br>greater than 1</p>
                     </td>
@@ -180,9 +184,9 @@ Vue.component('cartPageProduct', {
                         <p class="subtotal__value">$ {{cartProd.quantity * cartProd.price}}</p>
                     </td>
                     <td class="table__body-cell">
-                            <a href="#" @click.prevent="$emit('remove', cartProd)" class="delete-button__link">
-                                <i class="fas fa-times-circle"></i>
-                            </a>
+                        <button @click.prevent="$emit('remove', cartProd)" class="delete-button__link" aria-label="remove item">
+                            <i class="fas fa-times-circle"></i>
+                        </button>
                     </td>
                 </tr>`
 });

@@ -14,16 +14,17 @@ class Accordeon {
     }
     _onEvent() {
         this.menu.addEventListener('click', e => {
-            e.preventDefault();
-            let target = e.target;
+            const target = e.target;
+
             if (target.classList.contains(this.menuHead) || target.parentNode.classList.contains(this.menuHead)) {
+                e.preventDefault();
                 if (target.getAttribute('href')) {
-                    let id = target.getAttribute('href');
-                    let triangleActive = target.querySelector(this.triangle);
+                    const id = target.getAttribute('href');
+                    const triangleActive = target.querySelector(this.triangle);
                     this._toggle(e, id, triangleActive);
                 } else {
-                    let id = target.parentNode.getAttribute('href');
-                    let triangleActive = target;
+                    const id = target.parentNode.getAttribute('href');
+                    const triangleActive = target;
                     this._toggle(e, id, triangleActive);
                 }
             }

@@ -4,30 +4,36 @@ Vue.component('sizeSort', {
     },
     methods: {},
     template: `<div class="choice__section">
-                        <h3 class="choice__head">Size</h3>
+                        <span class="choice__head size-head">Size</span>
                         <div class="choice__box">
                             <ul class="choice__size">
                                 <li class="size__value">
-                                    <input type="checkbox" class="size__input" id="size1">
-                                    <label for="size1" class="size__label">XXS</label>
-                                    <input type="checkbox" class="size__input" id="size5">
-                                    <label for="size5" class="size__label">L</label>
+                                    <input type="checkbox" value="XXS" class="size__input" id="XXS">
+                                    <label for="XXS" class="size__label">XXS</label>
                                 </li>
                                 <li class="size__value">
-                                    <input type="checkbox" class="size__input" id="size2">
-                                    <label for="size2" class="size__label">XS</label>
-                                    <input type="checkbox" class="size__input" id="size6">
-                                    <label for="size6" class="size__label">XL</label>
+                                    <input type="checkbox" value="XS" class="size__input" id="XS">
+                                    <label for="XS" class="size__label">XS</label>
                                 </li>
                                 <li class="size__value">
-                                    <input type="checkbox" class="size__input" id="size3">
-                                    <label for="size3" class="size__label">S</label>
-                                    <input type="checkbox" class="size__input" id="size7">
-                                    <label for="size7" class="size__label">XXL</label>
+                                    <input type="checkbox" value="S" class="size__input" id="S">
+                                    <label for="S" class="size__label">S</label>
                                 </li>
                                 <li class="size__value">
-                                    <input type="checkbox" class="size__input" id="size4">
-                                    <label for="size4" class="size__label">M</label>
+                                    <input type="checkbox" value="M" class="size__input" id="M">
+                                    <label for="M" class="size__label">M</label>
+                                </li>
+                                <li class="size__value">
+                                    <input type="checkbox" value="L" class="size__input" id="L">
+                                    <label for="L" class="size__label">L</label>
+                                </li>  
+                                <li class="size__value">
+                                    <input type="checkbox" value="XL" class="size__input" id="XL">
+                                    <label for="XL" class="size__label">XL</label>
+                                </li>
+                                <li class="size__value">
+                                    <input type="checkbox" value="XXL" class="size__input" id="XXL">
+                                    <label for="XXL" class="size__label">XXL</label>
                                 </li>
                             </ul>
                         </div>

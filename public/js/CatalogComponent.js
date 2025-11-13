@@ -1,4 +1,4 @@
-Vue.component('catalog', {
+Vue.component('catalog-component', {
     props: ['num'],
     data() {
         return {
@@ -135,20 +135,22 @@ Vue.component('catalog-product', {
         }
     },
     template: `<li class="products__item">
-                    <a href="product.html" class="products__link-img" :style="{backgroundImage: imgName}">
-                    </a>
-                    
-                    <div class="products__name">
-                        <a href="product.html" class="products__link-name">{{productItem.product_name}}</a>
-                        <p class="products__link-price">$ {{productItem.price}}</p>
-                    </div>
-                    <a href="#" class="product__hover_cart" @click.prevent="$root.$refs.cart.addToCart(productItem)">
-                        <img src="img/cart_white.svg" alt="" class="product__hover_cart-img">Add to cart
-                    </a>
-                    <a href="#" class="product__hover_switch" @click.prevent="switchPhoto(productItem.id_product)">
-                    </a>
-                    <a href="#" class="product__hover_like">
-                        <img src="img/heart.svg" alt="" class="product__hover_button-img">
-                    </a>
+                    <article class="products__article">
+                        <a href="product.html" class="products__link-img" :style="{backgroundImage: imgName}">
+                        </a>
+                        
+                        <div class="products__name">
+                            <a href="product.html" class="products__link-name">{{productItem.product_name}}</a>
+                            <p class="products__link-price">$ {{productItem.price}}</p>
+                        </div>
+                        <button class="product__hover_cart" @click.prevent="$root.$refs.cart.addToCart(productItem)">
+                            <img src="img/cart_white.svg" alt="cart" class="product__hover_cart-img">Add to cart
+                        </button>
+                        <button class="product__hover_switch" @click.prevent="switchPhoto(productItem.id_product)">
+                        </button>
+                        <button class="product__hover_like">
+                            <img src="img/heart.svg" alt="favourites" class="product__hover_button-img">
+                        </button>
+                    </article>
                 </li>`
 });
