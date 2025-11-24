@@ -10,7 +10,7 @@
     width: 100%;
     padding: 73px 247px 122px;
     background-color: #fff;
-    border: 1px solid #eaeaea; }
+    border: 1px solid #a4a4a4; }
   .product__carousel {
     width: 100%;
     height: 777px;
@@ -26,7 +26,7 @@
     width: 645px;
     text-align: center;
     padding-bottom: 43px;
-    border-bottom: 1px solid #eaeaea; }
+    border-bottom: 1px solid #a4a4a4; }
   .product__name {
     margin: 34px auto 67px;
     color: #4d4d4d;
@@ -40,7 +40,7 @@
     font-weight: 300;
     line-height: 25px;
     margin-bottom: 28px; }
-  .product__head {
+  .product__header {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -89,6 +89,9 @@
     background-color: #f16d7f; }
   .cart__button:hover .pink__cart {
     background: url(../../img/cart_white.svg) center center no-repeat; }
+  .cart__button:active {
+    background-color: #ffffff;
+    color: #f16d7f; }
 
 .pink__cart {
   width: 26px;
@@ -109,7 +112,7 @@
   text-transform: uppercase;
   line-height: 11px;
   padding-bottom: 15px;
-  border-bottom: 1px solid #eaeaea; }
+  border-bottom: 1px solid #a4a4a4; }
 
 .material {
   color: #b9b9b9;
@@ -156,21 +159,21 @@
 
 .color__form {
   position: relative; }
-  .color__form::before {
-    content: "";
+  .color__form_color {
     position: absolute;
     top: 11px;
     left: 14px;
     width: 12px;
     height: 12px;
     background-color: #ef5b70;
+    border: 1px solid #a4a4a4;
     z-index: 1; }
 
 .choose__list {
   width: 144px;
   height: 35px;
   position: relative;
-  border: 1px solid #eaeaea;
+  border: 1px solid #a4a4a4;
   padding: 8px 13px 10px 33px;
   text-transform: capitalize;
   color: #777;
@@ -191,7 +194,7 @@
   width: 144px;
   height: 35px;
   position: relative;
-  border: 1px solid #eaeaea;
+  border: 1px solid #a4a4a4;
   padding: 8px 13px 10px 13px;
   text-transform: capitalize;
   color: #777;
@@ -206,9 +209,9 @@
 .quantity__input {
   width: 144px;
   height: 35px;
-  border: 1px solid #eaeaea;
+  border: 1px solid #a4a4a4;
   padding: 10px 13px;
-  color: #bcbcbc;
+  color: #777;
   cursor: pointer;
   outline: none; }
   .quantity__input_empty {
@@ -229,7 +232,9 @@
   .more__products-container {
     width: 1140px;
     margin: 120px auto 75px;
-    text-align: center; }
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
   .more__products-head {
     display: block;
     color: #4d4d4d;

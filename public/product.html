@@ -5,15 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Product - BRAND</title>
-    <link rel="stylesheet" href="style/css/all.css">
-    <link rel="stylesheet" href="style/css/header.css">
-    <link rel="stylesheet" href="style/css/menu.css">
-    <link rel="stylesheet" href="style/css/breadcrumbs.css">
-    <link rel="stylesheet" href="style/css/product.css">
-    <link rel="stylesheet" href="style/css/catalog-products.css">
-    <link rel="stylesheet" href="style/css/review__subscribe.css">
-    <link rel="stylesheet" href="style/css/footer.css">
-    <link rel="stylesheet" href="style/css/error.css">
+    <link rel="stylesheet" href="style/css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
@@ -30,9 +22,6 @@
                             <div class="logo__text">BRAN<span class="pink">D</span></div>
                         </a>
                     </div>
-
-                    <search-component ref="search"></search-component>
-
                 </div>
                 <div class="header__right">
 
@@ -128,7 +117,7 @@
                         <p class="subscribe__text-mini">FOR OUR NEWSLETTER AND PROMOTION</p>
                     </div>
                     <form action="#" class="subscribe__form">
-                        <input type="email" name="email" placeholder="Enter Your Email" class="subscribe__email">
+                        <input type="email" name="email" placeholder="Enter Your Email" class="subscribe__email" required>
                         <button class="subscribe__button">Subscribe</button>
                     </form>
                 </div>
@@ -136,63 +125,21 @@
         </div>
     </div>
 
-    <footer class="footer__info">
-        <div class="footer__info-container">
-            <div class="footer__info-right">
-                <div class="header__logo">
-                    <a href="index.html" class="logo">
-                        <img src="img/logo.png" alt="logo" class="logo__img">
-                        <div class="logo__text">BRAN<span class="pink">D</span></div>
-                    </a>
-                </div>
-                <div class="about__brand">
-                    <p class="about__brand-text">Objectively transition extensive data rather than cross functional solutions. Monotonectally syndicate multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array of processes and cross-unit partnerships.</p>
-                    <p class="about__brand-text">Efficiently plagiarize 24/365 action items and focused infomediaries. Distinctively seize superior initiatives for wireless technologies. Dynamically optimize.</p>
-                </div>
-            </div>
-            
-            <menu-footer></menu-footer>
-            
-        </div>
-    </footer>
-    <footer class="footer__copywright">
-        <div class="copywright__container">
-            <p class="copywright__text">© 2017 Brand All Rights Reserved.</p>
-            <div class="social">
-                <ul class="social__list">
-                    <li class="social__item">
-                        <button class="social__link" aria-label="facebook"><i class="fab fa-facebook-f"></i></button>
-                    </li>
-                    <li class="social__item">
-                        <button class="social__link" aria-label="twitter"><i class="fab fa-twitter"></i></button>
-                    </li>
-                    <li class="social__item">
-                        <button class="social__link" aria-label="linkedin"><i class="fab fa-linkedin-in"></i></button>
-                    </li>
-                    <li class="social__item">
-                        <button class="social__link" aria-label="pinterest"><i class="fab fa-pinterest-p"></i></button>
-                    </li>
-                    <li class="social__item">
-                        <button class="social__link" aria-label="google-plus"><i class="fab fa-google-plus-g"></i></button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+    <footer-component ref="error"></footer-component>
+
     <error-component ref="error"></error-component>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script defer src="js/main.js"></script>
-<script src="js/SearchComponent.js"></script>
-<script src="js/MenuHeaderComponent.js"></script>
-<script src="js/CartComponent.js"></script>
-<script src="js/BreadcrumbsComponent.js"></script>
-<script src="js/ProductComponent.js"></script>
-<script src="js/CatalogComponent.js"></script>
-<script src="js/ErrorComponent.js"></script>
-<script defer src="js/carousel.js"></script>
-<script src="js/MenuFooterComponent.js"></script>
+<script defer src="js/api/main.js"></script>
+<script src="js/ui/shared/MenuHeaderComponent.js"></script>
+<script src="js/ui/shared/CartComponent.js"></script>
+<script src="js/ui/shared/BreadcrumbsComponent.js"></script>
+<script src="js/ui/productPage/ProductComponent.js"></script>
+<script src="js/ui/shared/CatalogComponent.js"></script>
+<script src="js/ui/shared/ErrorComponent.js"></script>
+<script defer src="js/api/carousel.js"></script>
+<script src="js/ui/shared/FooterComponent.js"></script>
 
 </body>
 

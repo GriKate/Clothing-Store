@@ -1,3 +1,5 @@
+@import 'variables'
+
 .menu
   width: 100%
   background-color: #ffffff
@@ -12,14 +14,14 @@
   &__link
     display: block
     padding: 20px 24px
-    color: #222222
+    color: $black
     font-size: 14px
     font-weight: 700
     text-transform: uppercase
     text-decoration: none
     line-height: 12px
     &_active
-      border-bottom: 3px solid #f16d7f
+      border-bottom: 3px solid $pink
   &__list
     display: flex
     background-color: #fff
@@ -70,11 +72,9 @@
     line-height: 12px
     padding: 8px 0
     &:hover
-      color: #f16d7f
+      color: $pink
   &__box
     width: 235px
-    max-height: 70vh
-    overflow-y: auto
     margin-right: 45px
     &:last-of-type
       margin-right: 0
@@ -119,3 +119,6 @@
   top: 70px
   left: 0
   padding: 20px 15px
+.cart-drop .menu-drop__box 
+  max-height: 70vh
+  overflow-y: auto

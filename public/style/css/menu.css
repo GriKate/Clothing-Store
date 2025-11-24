@@ -70,8 +70,6 @@
       color: #f16d7f; }
   .menu-drop__box {
     width: 235px;
-    max-height: 70vh;
-    overflow-y: auto;
     margin-right: 45px; }
     .menu-drop__box:last-of-type {
       margin-right: 0; }
@@ -115,5 +113,9 @@
   top: 70px;
   left: 0;
   padding: 20px 15px; }
+
+.cart-drop .menu-drop__box {
+  max-height: 70vh;
+  overflow-y: auto; }
 
 /*# sourceMappingURL=menu.css.map */

@@ -113,6 +113,9 @@
   transition: background-color 0.3s; }
   .product__hover_switch:hover {
     background-color: #f16d7f; }
+  .product__hover_switch:active {
+    color: #f16d7f;
+    background-color: #ffffff; }
   .product__hover_switch::after {
     content: "";
     position: absolute;
@@ -143,6 +146,9 @@
   transition: background-color 0.3s; }
   .product__hover_like:hover {
     background-color: #f16d7f; }
+  .product__hover_like:active {
+    color: #f16d7f;
+    background-color: #ffffff; }
 
 .products__all-button {
   display: flex;

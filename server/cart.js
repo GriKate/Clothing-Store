@@ -19,7 +19,8 @@ router.post('/', (req, res) => {
             cart.contents.push(req.body);
             let name = req.body.product_name;
 
-            cart.productsQuantity = cart.contents.length;
+            cart.productsQuantity = 0;
+            cart.contents.map( el => cart.productsQuantity += parseInt(el.quantity));
 
             cart.totalAmount = 0;
             for (let el of cart.contents) {
@@ -32,7 +33,7 @@ router.post('/', (req, res) => {
                     res.sendStatus(404, JSON.stringify({result: 0, text: err}));
                 } else {
                     res.send(JSON.stringify({result: 5, text: 'SUCCESS!'}));
-                    logger(name, 'add');
+                    // logger(name, 'add');
                 }
             })
         }
@@ -41,8 +42,8 @@ router.post('/', (req, res) => {
 
 // change product
 router.put('/:num', (req, res) => {
-    // id in req.params comes as a string
-    const num = +req.params.num;
+    
+    const num = parseInt(req.params.num);
     if (num < 1) {
         res.sendStatus(404, JSON.stringify({result: 0, text: 'Not valid ID'}));
     } else {
@@ -50,30 +51,35 @@ router.put('/:num', (req, res) => {
             if (err) {
                 res.sendStatus(404, JSON.stringify({result: 0, text: err}));
             } else {
-                let cart = JSON.parse(data);
-                let find = cart.contents.find(el => el.id_product === num);
-                let name = find.product_name;
+
+                const serverCart = JSON.parse(data);
+                const find = serverCart.contents.find(el => el.id === num);
+                // const name = find.product_name;
+
                 // if quantity is positive number, set it like product quantity
-                if (req.body.quantity > 1) {
-                    find.quantity = +req.body.quantity;
+                if (parseInt(req.body.quantity) > 1) {
+                    find.quantity = parseInt(req.body.quantity);
                 } else if (req.body.quantity === 1) {
                     find.quantity++;
                 } else if (req.body.quantity === -1) {
                     find.quantity--;
                 }
 
-                cart.totalAmount = 0;
-                for (let el of cart.contents) {
-                    cart.totalAmount += el.price * el.quantity;
-                }
+                serverCart.totalAmount = 0;
+                serverCart.contents.map( el => {
+                    serverCart.totalAmount += el.price * el.quantity;
+                })
 
-                let newCart = JSON.stringify(cart, null, 4);
+                serverCart.productsQuantity = 0;
+                serverCart.contents.map( el => serverCart.productsQuantity += parseInt(el.quantity));
+
+                const newCart = JSON.stringify(serverCart, null, 4);
                 fs.writeFile('server/db/getBasket.json', newCart, (err, data) => {
                     if (err) {
                         res.sendStatus(404, JSON.stringify({result: 0, text: err}));
                     } else {
                         res.send(JSON.stringify({result: 3, text: 'SUCCESS!'}));
-                        logger(name, 'quantity change');
+                        // logger(name, 'quantity change');
                     }
                 })
             }
@@ -82,34 +88,34 @@ router.put('/:num', (req, res) => {
 });
 
 router.delete('/:num?', (req, res) => {
-    // id in req.params comes as a string
-    const num = +req.params.num;
+
+    const num = parseInt(req.params.num);
     // delete product by id
     if (num) {
         fs.readFile('server/db/getBasket.json', 'utf-8', (err, data) => {
             if (err) {
                 res.sendStatus(404, JSON.stringify({result: 0, text: err}));
             } else {
-                let cart = JSON.parse(data);
-
-                let find = cart.contents.find(el => el.id_product === num);
-                let name = find.product_name;
+                const cart = JSON.parse(data);
+                const find = cart.contents.find(el => el.id === num);
+                // const name = find.product_name;
 
                 cart.contents.splice(cart.contents.indexOf(find), 1);
-                cart.productsQuantity--;
+                cart.productsQuantity = 0;
+                cart.contents.map( el => cart.productsQuantity += parseInt(el.quantity));
 
                 cart.totalAmount = 0;
-                for (let el of cart.contents) {
+                cart.contents.map( el => {
                     cart.totalAmount += el.price * el.quantity;
-                }
+                })
 
-                let newCart = JSON.stringify(cart, null, 4);
+                const newCart = JSON.stringify(cart, null, 4);
                 fs.writeFile('server/db/getBasket.json', newCart, (err, data) => {
                     if (err) {
                         res.sendStatus(404, JSON.stringify({result: 0, text: err}));
                     } else {
                         res.send(JSON.stringify({result: 1, text: 'SUCCESS!'}));
-                        logger(name, 'delete');
+                        // logger(name, 'delete');
                     }
                 })
             }
@@ -125,7 +131,7 @@ router.delete('/:num?', (req, res) => {
                 cart.contents = [];
                 cart.productsQuantity = 0;
                 cart.totalAmount = 0;
-                let newCart = JSON.stringify(cart, null, 4);
+                const newCart = JSON.stringify(cart, null, 4);
                 fs.writeFile('server/db/getBasket.json', newCart, (err, data) => {
                     if (err) {
                         res.sendStatus(404, JSON.stringify({result: 0, text: err}));

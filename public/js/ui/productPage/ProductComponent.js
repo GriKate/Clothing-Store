@@ -3,25 +3,18 @@ Vue.component('product-component', {
         return {
             urlProduct: '/entity',
             product: {},
-            colors: []
+            colors: [],
+            currentColor: ''
         }
     },
     methods: {
-        setProduct(product) {
-            this.product = product;
-        },
-        setQuantity(event) {
-            this.product.quantity = event.target.value;
-        },
-        setColor(event) {
-            this.product.color = event.target.value;
-        },
-        setSize(event) {
-            this.product.size = event.target.value;
+        setCurrentColor(e) {
+            const colorName = e.target.value.toLowerCase();
+            this.currentColor = colorName;
         }
     },
     mounted() {
-        this.$parent.getJson(`/entity/502`)
+        this.$parent.getJson(`${this.urlProduct}/502`)
             .then(data => {
                 this.product = data;
             });
@@ -45,7 +38,7 @@ Vue.component('product-component', {
                     <div class="product__description">
                         <div class="product__container">
                             <div class="product__box">
-                                <div class="product__head">
+                                <div class="product__header">
                                     <span class="collection__name">{{product.collection}}</span>
                                     <div class="pink__line"></div>
                                     <h1 class="product__name">{{product.product_name}}</h1>
@@ -58,25 +51,51 @@ Vue.component('product-component', {
                                     </div>
                                     <p class="price">$ {{product.price}}</p>
                                 </div>
-                                <form class="choose__form">
+                                <div class="choose__container">
                                     <div class="choose__block">
                                         <div class="choose__drop">
                                             <p class="choose__text">CHOOSE COLOR</p>
-                                            <div class="color__form">
-                                                <select name="color" id="1" required @change="setColor($event)" class="choose__list" aria-label="choose color">
+                                            <form 
+                                                class="color__form" 
+                                                id="choose-form"
+                                                @submit.prevent="$parent.$refs.cart.addToCart(product)"
+                                            >
+                                                <div 
+                                                    class="color__form_color" 
+                                                    :style="{ backgroundColor: currentColor }"
+                                                ></div>
+                                                <select 
+                                                    name="color" 
+                                                    id="1" 
+                                                    v-model="product.color" 
+                                                    class="choose__list" 
+                                                    aria-label="choose color" 
+                                                    @change="setCurrentColor"
+                                                    required
+                                                >
                                                     <option value="" disabled selected>Color...</option>
-                                                    <color 
-                                                    v-for="color of colors" 
-                                                    :key="color"
-                                                    :color="color"
-                                                    ></color>
+                                                    <option 
+                                                        v-for="color of colors" 
+                                                        :key="color" 
+                                                        :value="color" 
+                                                        class="color__item"
+                                                    >
+                                                        {{color}}
+                                                    </option>
                                                 </select>
-                                            </div>
+                                            </form>
                                         </div>
                                         <div class="choose__drop">
                                             <p class="choose__text">CHOOSE SIZE</p>
                                             <div class="size__form">
-                                                <select name="size" required @change="setSize($event)" class="size__list" aria-label="choose size">
+                                                <select 
+                                                    name="size" 
+                                                    form="choose-form"
+                                                    v-model="product.size" 
+                                                    class="size__list" 
+                                                    aria-label="choose size" 
+                                                    required
+                                                >
                                                     <option value="" disabled selected>Size...</option>
                                                     <option :value="'XS'" class="size__item">XS</option>
                                                     <option :value="'S'" class="size__item">S</option>
@@ -90,26 +109,36 @@ Vue.component('product-component', {
                                         <div class="choose__drop">
                                             <p class="choose__text">QUANTITY</p>
                                             <div class="quantity__form">
-                                                <input type="number" name="quantity" min="1" required placeholder="Set quantity..." value="1" @input="setQuantity($event)" @focus="$event.target.value = ''" class="quantity__input">
+                                                <input 
+                                                    type="number" 
+                                                    name="quantity" 
+                                                    form="choose-form"
+                                                    min="1" 
+                                                    placeholder="Set quantity..." 
+                                                    value="1" 
+                                                    v-model="product.quantity" 
+                                                    @focus="$event.target.value = ''" 
+                                                    class="quantity__input"
+                                                    required
+                                                >
                                             </div>
                                             <p class="quantity__input_empty" v-if="product.quantity < 1">Enter a value <br>greater than 1</p>
                                         </div>
                                     </div>
                                     <div class="cart__add">
-                                        <button class="cart__button" 
-                                            @click.prevent="$parent.$refs.cart.addToCart(product)">
+                                        <button 
+                                            type="submit"
+                                            class="cart__button" 
+                                            form="choose-form"
+                                            
+                                        >
                                             <div class="pink__cart"></div>
                                             Add to cart
                                         </button>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>`
-});
-
-Vue.component('color', {
-    props: ['color'],
-    template: `<option :value="color" class="color__item">{{color}}</option>`
 });

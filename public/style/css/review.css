@@ -78,7 +78,6 @@
 .rest__info {
   width: 100%;
   height: 438px;
-  margin-bottom: 110px;
   background: url(../../img/review_pic.jpg) center center no-repeat; }
   .rest__info-container {
     width: 1140px;
@@ -147,4 +146,4 @@
   margin-bottom: 35px;
   text-align: center; }
 
-/*# sourceMappingURL=review__subscribe.css.map */
+/*# sourceMappingURL=review.css.map */

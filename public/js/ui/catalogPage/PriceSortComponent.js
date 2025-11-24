@@ -25,19 +25,38 @@ Vue.component('priceSort', {
     },
 
     methods: {
-        checkInputValue() {
+        checkMinInputValue() {
+            this.currentMinPrice = parseInt(this.currentMinPrice);
+        },
+
+        checkMaxInputValue() {
+            this.currentMaxPrice = parseInt(this.currentMaxPrice);
+        },
+
+        changeIncorrectMinValue() {
             if (!this.currentMinPrice) {
                 this.currentMinPrice = 0;
-                console.log('1 Min ' + this.currentMinPrice)
-            }
-
-            if (!this.currentMaxPrice) {
-                this.currentMaxPrice = 100;
-                console.log('1 Max ' + this.currentMaxPrice)
             }
             
-            this.currentMinPrice = parseInt(this.currentMinPrice);
-            this.currentMaxPrice = parseInt(this.currentMaxPrice);
+            if (this.currentMinPrice > this.currentMaxPrice) {
+                this.currentMinPrice = 0;
+                this.setMinByInput()
+                alert("Enter the correct Minimal Price");
+            }
+            
+        },
+
+        changeIncorrectMaxValue() {
+            if (!this.currentMaxPrice) {
+                this.currentMaxPrice = this.currentMinPrice + 10;
+            }
+            
+            if (this.currentMaxPrice < this.currentMinPrice) {
+                this.currentMaxPrice = this.currentMinPrice + 10;
+                this.setMaxByInput()
+                alert("Enter the correct Max Price");
+            }
+            
         },
 
         moveBtnLeft(event) {
@@ -72,6 +91,7 @@ Vue.component('priceSort', {
                     this.handleLine.style.left = this.newLeftPosition + 'px';
                     this.handleLine.style.width = (this.percentMax - this.currentPercentMin - (this.percentMax - this.currentPercentMax)) + '%';
 
+                    checkLeftSlider();
                     this.$parent.$refs.catalog.filterPrice(this.currentMinPrice, this.currentMaxPrice);
                 }
             };
@@ -80,12 +100,14 @@ Vue.component('priceSort', {
             document.addEventListener('mouseup', onMouseUp);
 
             const checkLeftSlider = () => {
+
                 if (this.newLeftPosition >= (this.handleLineWidth - this.newRightPosition)) {
-                    this.currentMinPrice = this.currentMaxPrice;
+                    this.newLeftPosition = this.handleLineWidth - this.newRightPosition - 5;
+                    this.currentMinPrice = this.currentMaxPrice - 5;
                     this.inputMin.value = this.currentMinPrice;
 
                     // style for left handler in px
-                    this.buttonMin.style.left = (this.line.offsetWidth * (this.currentMaxPrice * 100 / this.maxPrice) / 100) - shiftX + 'px';
+                    this.buttonMin.style.left = (this.line.offsetWidth * (this.currentMaxPrice * 100 / this.maxPrice) / 100) - shiftX - 10 + 'px';
 
                     this.currentPercentMin = this.currentPercentMax;
                     // start and width of price range line
@@ -95,7 +117,7 @@ Vue.component('priceSort', {
             };
 
             function onMouseUp() {
-                checkLeftSlider();
+                // checkLeftSlider();
                 document.removeEventListener('mouseup', onMouseUp);
                 document.removeEventListener('mousemove', onMouseMove);
             }
@@ -137,6 +159,7 @@ Vue.component('priceSort', {
                     // width of price range line
                     this.handleLine.style.width = (this.percentMax - this.currentPercentMin - (this.percentMax - this.currentPercentMax)) + '%';
 
+                    checkRightSlider();
                     this.$parent.$refs.catalog.filterPrice(this.currentMinPrice, this.currentMaxPrice);
                 }
             };
@@ -145,12 +168,14 @@ Vue.component('priceSort', {
             document.addEventListener('mouseup', onMouseUp);
 
             let checkRightSlider = () => {
+
                 if (this.newRightPosition >= (this.handleLineWidth - this.newLeftPosition)) {
-                    this.currentMaxPrice = this.currentMinPrice;
+                    this.newRightPosition = this.handleLineWidth - this.newLeftPosition - 5;
+                    this.currentMaxPrice = this.currentMinPrice + 5;
                     this.inputMax.value = this.currentMaxPrice;
 
                     // style for right handler in px
-                    this.buttonMax.style.right = this.line.offsetWidth - (this.line.offsetWidth * (this.currentMinPrice * 100 / this.maxPrice) / 100) - shiftX + 'px';
+                    this.buttonMax.style.right = this.line.offsetWidth - (this.line.offsetWidth * (this.currentMinPrice * 100 / this.maxPrice) / 100) - shiftX - 10 + 'px';
 
                     this.currentPercentMax = this.currentPercentMin;
                     // start and width of price range line
@@ -160,7 +185,7 @@ Vue.component('priceSort', {
             };
 
             function onMouseUp() {
-                checkRightSlider();
+                // checkRightSlider();
                 document.removeEventListener('mouseup', onMouseUp);
                 document.removeEventListener('mousemove', onMouseMove);
             }
@@ -176,7 +201,7 @@ Vue.component('priceSort', {
 
         setMinByInput() {
 
-            this.checkInputValue();
+            this.checkMinInputValue();
 
             if (this.currentMinPrice >= this.minPrice && this.currentMinPrice <= this.currentMaxPrice) {
 
@@ -194,13 +219,12 @@ Vue.component('priceSort', {
                 this.handleLine.style.width = percent + '%';
 
                 this.$parent.$refs.catalog.filterPrice(this.currentMinPrice, this.currentMaxPrice);
-            }
-            // else
+            } 
         },
 
         setMaxByInput() {
-            
-            this.checkInputValue();
+
+            this.checkMaxInputValue();
 
             if (this.currentMaxPrice <= this.maxPrice && this.currentMaxPrice >= this.currentMinPrice) {
 
@@ -216,8 +240,7 @@ Vue.component('priceSort', {
                 this.handleLine.style.width = percent + '%';
 
                 this.$parent.$refs.catalog.filterPrice(this.currentMinPrice, this.currentMaxPrice);
-            }
-            // else
+            } 
         }
     },
 
@@ -268,7 +291,8 @@ Vue.component('priceSort', {
                                     name="min-interval"
                                     aria-label="min price input"
                                     v-model="currentMinPrice" 
-                                    @input.prevent="setMinByInput"
+                                    @input.prevent="setMinByInput" 
+                                    @blur="changeIncorrectMinValue"
                                 >
 
                                 <input
@@ -278,7 +302,8 @@ Vue.component('priceSort', {
                                     name="max-interval"
                                     aria-label="max price input"
                                     v-model="currentMaxPrice" 
-                                    @input.prevent="setMaxByInput"
+                                    @input.prevent="setMaxByInput" 
+                                    @blur="changeIncorrectMaxValue"
                                 >
                             </form>
                         </div>

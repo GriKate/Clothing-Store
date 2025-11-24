@@ -1,3 +1,6 @@
+@import 'variables'
+@import 'mixins'
+
 .checkout
   width: 100%
   &__container
@@ -14,7 +17,7 @@
       margin-left: -35px
       margin-bottom: 40px
   &__head
-    color: #222222
+    color: $black
     font-size: 16px
     font-weight: 700
     line-height: 12px
@@ -32,7 +35,7 @@
 .register__head
   display: block
   margin-bottom: 15px
-  color: #222222
+  color: $black
   font-size: 13px
   font-weight: 700
   line-height: 11px
@@ -45,6 +48,13 @@
   font-weight: 400
   line-height: 11px
 
+.checkout__btn-box
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  align-items: center
+  margin-top: 25px
+
 .register__check
   position: relative
   display: -webkit-box
@@ -54,7 +64,7 @@
   -webkit-box-direction: normal
   -ms-flex-direction: column
   flex-direction: column
-  padding: 0 0 15px 28px
+  padding: 0 0 25px 28px
 
 
 .register__input
@@ -65,7 +75,7 @@
     display: block
   &_label
     margin-bottom: 20px
-    color: #222222
+    color: $black
     font-size: 12px
     font-weight: 700
     line-height: 10px
@@ -89,7 +99,7 @@
     top: 0
     left: 5px
     border-radius: 4px
-    background-color: #f16d7f
+    background-color: $pink
     display: none
   &_register-label:before
     content: ""
@@ -109,7 +119,7 @@
     top: 30px
     left: 5px
     border-radius: 4px
-    background-color: #f16d7f
+    background-color: $pink
     display: none
 
 
@@ -123,23 +133,7 @@
 
 
 .register__button
-  display: block
-  float: left
-  width: 180px
-  height: 50px
-  margin-top: 25px
-  text-align: center
-  color: #4a4a4a
-  font-size: 14px
-  font-weight: 700
-  line-height: 50px
-  text-transform: uppercase
-  border: 1px solid #eaeaea
-  background-color: #fff
-  transition: color, background-color 0.3s
-  &:hover
-    color: #fff
-    background-color: #f16d7f
+  +button-pink
 
 
 
@@ -149,11 +143,11 @@
   margin-bottom: 22px
   padding-left: 15px
   padding-right: 15px
-  border: 1px solid #eaeaea
+  border: 1px solid $border-grey
   outline: none
   &-head
     margin-bottom: 15px
-    color: #222222
+    color: $black
     font-size: 12px
     font-weight: 700
     line-height: 10px
@@ -170,9 +164,6 @@
 
 .register__forgot
   display: block
-  float: right
-  margin-right: 70px
-  margin-top: 45px
   margin-left: 30px
   color: #4a4a4a
   font-size: 14px
@@ -180,4 +171,4 @@
   text-transform: capitalize
   line-height: 12px
   &:hover
-    color: #f16d7f
+    color: $pink
