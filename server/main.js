@@ -26,22 +26,17 @@ app.use('/colors', colors);
 
 app.use('/cart', express.static('public/cart.html'));
 
-app.get('/cart1', (req, res) => {
-    fs.readFile('server/db/getBasket.json', 'utf-8', (err, data) => {
-        res.send(data);
-    })
-});
+// app.get('/cart1', (req, res) => {
+//     fs.readFile('server/db/getBasket.json', 'utf-8', (err, data) => {
+//         res.send(data);
+//     })
+// });
 app.use('/getCart', cart);
 
 app.get('/test', (req, res) => {
     res.send('test');
 });
 
-app.get('/j', (req, res) => {
-  res.json({ message: 'Hello from Express on Vercel!' });
-});
-
-// app.listen(3000, () => console.log('Listen on port 3000...'));
 if (process.env.NODE_ENV !== 'production') {
     const PORT = process.env.PORT || 3000;
 
@@ -51,23 +46,3 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = app;
-
-
-
-// app.get('/a', (req, res) => {
-//   res.json({ message: 'Hello from Express on Vercel!' });
-// });
-
-// app.get('/test', (req, res) => {
-//     res.send('test');
-// });
-
-// if (process.env.NODE_ENV !== 'production') {
-//     const PORT = process.env.PORT || 3000;
-
-//     app.listen(PORT, () => {
-//         console.log(`Сервер запущен на порту ${PORT}`);
-//     });
-// }
-
-// export default app;

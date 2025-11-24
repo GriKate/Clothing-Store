@@ -1,3 +1,5 @@
+@import 'variables'
+
 .catalogue
   width: 100%
   &__container
@@ -17,12 +19,12 @@
       position: relative
       height: 37px
       padding-left: 10px
-      color: #f16d7f
+      color: $pink
       font-size: 14px
       font-weight: 900
       line-height: 37px
       text-transform: uppercase
-      border-left: 5px solid #f16d7f
+      border-left: 5px solid $pink
       border-bottom: 1px solid #ebebeb
     &__triangle
       position: absolute
@@ -33,7 +35,7 @@
         position: absolute
         top: 10px
         right: 5px
-        color: #f16d7f
+        color: $pink
         -webkit-transform: rotate(180deg)
         transform: rotate(180deg)
 
@@ -52,7 +54,7 @@
       line-height: 12px
       padding: 8px 0
       &:hover
-        color: #f16d7f
+        color: $pink
 
 
 
@@ -145,7 +147,7 @@
     height: 13px
     top: -1px
     left: -20px
-    border: 1px solid #ebebeb
+    border: 1px solid $border-grey
     background-color: #ffffff
   &::after
     position: absolute
@@ -154,8 +156,8 @@
     height: 8px
     top: -1px
     left: -16px
-    border-right: 2px solid #f16d7f
-    border-bottom: 2px solid #f16d7f
+    border-right: 2px solid $pink
+    border-bottom: 2px solid $pink
     -webkit-transform: rotate(45deg)
     transform: rotate(45deg)
     display: none
@@ -182,7 +184,7 @@
     height: 3px
     left: 0
     width: 100%
-    background-color: #f16d7f
+    background-color: $pink
   &_handle
     position: absolute
     top: 50%
@@ -194,14 +196,15 @@
     border: none
     outline: none
     border-radius: 50%
-    background-color: #f16d7f
+    background-color: $pink
     cursor: pointer
   &_input
     width: 55px
+    padding-left: 3px
     color: #6f6e6e
     font-size: 14px
     font-weight: 400
-    border: 1px solid #eaeaea
+    border: 1px solid $border-grey
     outline: none
 
 #min-price-button 

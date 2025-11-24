@@ -199,6 +199,8 @@
   background-color: #ffffff; }
   .search__button:focus {
     outline: none; }
+  .search__button:active {
+    border: 2px solid #f16d7f; }
   .search__button:hover .fa-search {
     color: #f16d7f; }
 
@@ -220,14 +222,15 @@
     position: absolute;
     top: -8px;
     right: -8px;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     background-color: #f16d7f;
-    border-radius: 10px; }
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
     .cart .cart__quantity-text {
-      position: absolute;
-      top: 5px;
-      right: 7px;
+      display: block;
       font-size: 12px;
       font-weight: 700;
       line-height: 10px;
@@ -245,6 +248,7 @@
   justify-content: space-between;
   height: 100px;
   padding-bottom: 15px;
+  padding-right: 5px;
   margin-bottom: 15px;
   border-bottom: 1px solid #f2f2f2; }
   .menu-drop__product-container {
@@ -252,6 +256,9 @@
     display: -ms-flexbox;
     display: flex; }
   .menu-drop__product-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin-left: 15px; }
   .menu-drop__product-img {
     height: 85px; }
@@ -261,9 +268,8 @@
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
-    margin: 10px 0 12px; }
+    margin-top: 10px; }
   .menu-drop__product-rating {
-    margin-bottom: 12px;
     font-size: 10px; }
     .menu-drop__product-rating .fas {
       color: #e4af48; }
@@ -312,23 +318,23 @@
 
 .menu-drop__cart-button {
   display: block;
-  width: 100%;
-  height: 50px;
-  margin-bottom: 1px;
-  background-color: #fff;
+  padding: 20px 40px 18px;
   color: #4a4a4a;
   font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.4px;
-  line-height: 50px;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  text-align: center;
   text-transform: uppercase;
-  transition: color, background-color 0.3s; }
+  text-align: center;
+  line-height: 11px;
+  border: 1px solid #a4a4a4;
+  background-color: #ffffff;
+  cursor: pointer;
+  -webkit-transition: color, background-color 0.3s;
+  transition: color, background-color 0.3s;
+  margin-bottom: 1px; }
   .menu-drop__cart-button:hover {
     color: #fff;
-    background-color: #f16d7f; }
+    background-color: #f16d7f;
+    border-color: #f16d7f; }
 
 .action__button {
   display: -webkit-box;

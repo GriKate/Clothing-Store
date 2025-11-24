@@ -1,13 +1,15 @@
 Vue.component('search-component', {
     data() {
         return {
-            filtered: [],
             searchLine: '',
         }
     },
     methods: {},
     template: `<div class="header-form">
-                    <form action="#" class="header-form__search" @submit.prevent="$root.$refs.catalog.filterName(searchLine)">
+                    <form 
+                        class="header-form__search" 
+                        @submit.prevent="$root.$refs.catalog.filterName(searchLine, null)"
+                    >
                         <nav class="browse-button">Browse<i class="fas fa-caret-down triangle-grey"></i>
                             <div class="menu-drop browse-drop">
                                 <div class="menu-drop__box">

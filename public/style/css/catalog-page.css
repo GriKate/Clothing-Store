@@ -136,7 +136,7 @@
     height: 13px;
     top: -1px;
     left: -20px;
-    border: 1px solid #ebebeb;
+    border: 1px solid #a4a4a4;
     background-color: #ffffff; }
   .size__label::after {
     position: absolute;
@@ -186,10 +186,11 @@
     cursor: pointer; }
   .choice__price_input {
     width: 55px;
+    padding-left: 3px;
     color: #6f6e6e;
     font-size: 14px;
     font-weight: 400;
-    border: 1px solid #eaeaea;
+    border: 1px solid #a4a4a4;
     outline: none; }
 
 #min-price-button {

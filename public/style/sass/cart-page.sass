@@ -1,10 +1,13 @@
+@import 'variables'
+@import 'mixins'
+
 .basket__section
   width: 100%
   background-color: #fff
   &-container
     width: 1140px
     margin: 0 auto
-    padding: 90px 0 80px
+    padding: 70px 0 80px
     background-color: #fff
   &_empty
     height: 200px
@@ -19,29 +22,25 @@
 
 .basket__table-head
   width: 100%
-  border-bottom: 1px solid #eaeaea
-  color: #222222
+  border-bottom: 1px solid $border-grey
+  color: $black
   font-size: 13px
   font-weight: 700
   line-height: 11px
   text-transform: uppercase
   letter-spacing: -0.2px
 
+.table__head-cell 
+  width: 140px
+  text-align: center
+
 .product__head
   width: 500px
+  padding-top: 22px
   padding-bottom: 22px
 
-.price__head
-  padding: 0 40px 22px 0
-
-.action__head
-  padding: 0 20px 22px 20px
-
-.table__head-padding
-  padding: 0 40px 22px
-
 .table__body-row
-  border-bottom: 1px solid #eaeaea
+  border-bottom: 1px solid $border-grey
 
 .table__body-cell
   padding: 25px 0
@@ -59,16 +58,16 @@
   &-text
     margin-left: 20px
 
-.product__name
+.product__name-link
   display: block
   margin: 13px 0 38px
-  color: #222222
+  color: $black
   font-size: 13px
   font-weight: 700
   text-transform: uppercase
   line-height: 11px
 
-.product__features
+.product__features-box
   color: #575757
   font-weight: 700
   font-size: 13px
@@ -86,11 +85,11 @@
   margin-left: 20px
   text-align: left
 
-.quantity__input
+.quantity__num-input
   width: 55px
   height: 30px
   padding: 6px 0 6px 23px
-  border: 1px solid #eaeaea
+  border: 1px solid $border-grey
   background-color: #ffffff
   outline: none
   &_empty
@@ -108,9 +107,9 @@
   background-color: transparent
   cursor: pointer
   &:hover .fa-times-circle
-    color: #f16d7f
+    color: $pink
 
-.basket__buttons
+.basket__button-box
   margin-bottom: 63px
   display: -webkit-box
   display: -ms-flexbox
@@ -119,22 +118,8 @@
   -ms-flex-pack: justify
   justify-content: space-between
 
-.cart__button
-  display: block
-  padding: 20px 40px 18px
-  color: #4a4a4a
-  font-size: 14px
-  font-weight: 900
-  text-transform: uppercase
-  line-height: 11px
-  border: 1px solid #eaeaea
-  background-color: #ffffff
-  cursor: pointer
-  -webkit-transition: color, background-color 0.3s
-  transition: color, background-color 0.3s
-  &:hover
-    color: #ffffff
-    background-color: #f16d7f
+.basket__button
+  +button-pink
 
 .basket__info
   display: -webkit-box
@@ -145,30 +130,26 @@
     display: -ms-flexbox
     display: flex
 
-.basket__form-left,
-.basket__form-right
+.basket__form
   width: 355px
   margin-right: 35px
 
-.basket__form-left
-  position: relative
-
 .select__country_triangle
   position: absolute
-  top: 49px
-  left: 332px
+  top: 50px
+  right: 7px
   color: #bdbdbd
   pointer-events: none
 
-.adress__head,
-.coupon__head
+.basket__form_head
   display: block
-  color: #222222
+  color: $black
   font-size: 16px
   font-weight: 900
   text-transform: uppercase
   line-height: 14px
   margin-bottom: 22px
+  position: relative
 
 .coupon__form_input
   display: block
@@ -176,7 +157,7 @@
   height: 45px
   padding: 13px
   margin-bottom: 20px
-  border: 1px solid #eaeaea
+  border: 1px solid $border-grey
   background-color: #ffffff
   color: #b1b1b1
   font-size: 13px
@@ -184,9 +165,9 @@
   line-height: 11px
   outline: none
   &-select
-    appearance: none
     -webkit-appearance: none
     -moz-appearance: none
+    appearance: none
 
 .coupon__input
   margin-bottom: 28px
@@ -202,23 +183,23 @@
   display: block
   float: left
   height: 35px
-  border: 1px solid #eaeaea
+  border: 1px solid $border-grey
   background-color: #ffffff
   padding: 12px 15px
-  color: #4a4a4a
+  color: $dark-grey
   font-size: 11px
   font-weight: 900
   text-transform: uppercase
   line-height: 9px
   cursor: pointer
-  -webkit-transition: color, background-color 0.3s
-  transition: color, background-color 0.3s
+  -webkit-transition: 0.3s
+  transition: 0.3s
+  &:hover
+    color: #ffffff
+    background-color: $pink
+    border-color: $pink
 
-.coupon__form_button:hover
-  color: #ffffff
-  background-color: #f16d7f
-
-.checkout
+.basket__checkout
   width: 360px
   height: 214px
   padding: 43px
@@ -228,15 +209,25 @@
     border-bottom: 1px solid #e2e2e2
     text-align: right
     &__subtotal
+      display: block
+      display: -webkit-box
+      display: -ms-flexbox
+      display: flex
+      justify-content: flex-end
       margin-bottom: 15px
-      color: #4a4a4a
+      color: $dark-grey
       font-size: 11px
       font-weight: 400
       text-transform: uppercase
       line-height: 10px
     &__grandtotal
+      display: block
+      display: -webkit-box
+      display: -ms-flexbox
+      display: flex
+      justify-content: flex-end
       margin-bottom: 23px
-      color: #222222
+      color: $black
       font-size: 16px
       font-weight: 900
       text-transform: uppercase
@@ -247,12 +238,12 @@
 
 .grandtotal-value
   margin-left: 20px
-  color: #f16d7f
+  color: $pink
 
 .pink-button
   display: block
   height: 48px
-  background-color: #f16d7f
+  background-color: $pink
   color: #ffffff
   font-size: 16px
   font-weight: 700
@@ -260,9 +251,9 @@
   padding: 17px 37px
   line-height: 14px
   text-transform: uppercase
-  border: 1px solid #f16d7f
+  border: 1px solid $pink
   -webkit-transition: color, background-color 0.3s
   transition: color, background-color 0.3s
   &:hover
-    color: #f16d7f
+    color: $pink
     background-color: #ffffff

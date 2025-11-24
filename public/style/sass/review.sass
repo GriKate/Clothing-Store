@@ -1,3 +1,5 @@
+@import 'variables'
+
 .subscribe
   width: 50%
   height: 100%
@@ -15,7 +17,7 @@
     width: 105px
     height: 45px
     border-radius: 0 23px 23px 0
-    background-color: #f16d7f
+    background-color: $pink
     padding: 17px 20px
     color: #ffffff
     font-size: 14px
@@ -26,7 +28,7 @@
     cursor: pointer
     transition: color, background-color 0.3s
     &:hover
-      color: #f16d7f
+      color: $pink
       background-color: #ffffff
   &__text-big
     color: #222224
@@ -83,7 +85,6 @@
 .rest__info
   width: 100%
   height: 438px
-  margin-bottom: 110px
   background: url(../../img/review_pic.jpg) center center no-repeat
   &-container
     width: 1140px
@@ -101,7 +102,7 @@
   line-height: 26px
 
 .customer__name
-  color: #f16d7f
+  color: $pink
   font-size: 16px
   font-weight: 900
   letter-spacing: 0.4px
@@ -139,12 +140,12 @@
     height: 4px
     background-color: #d6d6d6
   &.review__button_pink::before
-    background-color: #f16d7f
+    background-color: $pink
 
 
 
 .pink__col
-  background-color: #f16d7f
+  background-color: $pink
 
 .subscribe__box
   width: 387px

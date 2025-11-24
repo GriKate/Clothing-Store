@@ -9,79 +9,102 @@ Vue.component('cart-component', {
     },
     methods: {
         addToCart(product) {
-            let find = this.cartProducts.find((el) => product.id_product === el.id_product);
+            const findExactMatch = this.cartProducts.find( el => 
+                product.id_product === el.id_product && 
+                product.color === el.color && 
+                product.size === el.size
+            );
 
-            // if it is the product is in cart with same color and size
-            if (find && product.color === find.color && product.size === find.size) {
-                let currentQuantity = this.setQuantity(find.quantity, product.quantity);
-
-                this.$parent.putJson(`/getCart/${product.id_product}`, {quantity: currentQuantity})
-                    .then(data => {
-                        if (data.result) {
-                            if (!product.quantity) {
-                                find.quantity++;
-                            } else {
-                                find.quantity = currentQuantity;
-                            }
-                            this.countSum();
-                        }
-                    })
-                    .catch(error => console.log(error))
-
+            if (findExactMatch) {
+                this.addExistingProduct(findExactMatch, parseInt(product.quantity));
             } else {
-                // if it is no product with this id
-                let productToCart = Object.assign({quantity: 1}, product);
-                this.$parent.postJson(this.cartUrl, productToCart)
-                    .then(data => {
-                        if (data.result) {
-                            this.cartProducts.push(productToCart);
-                            this.quantityChange();
-                            this.countSum();
-                        }
-                    })
-                    .catch(error => console.log(error))
+                this.addNewProduct(product);
             }
         },
-        setQuantity(oldProdQuantity, newProdQuantity) {
+        
+        addExistingProduct(existingProduct, newProdQuantity) {
+            const currentQuantity = this.setProdQuantity(existingProduct.quantity, newProdQuantity);
+            
+            this.$parent.putJson(`${this.cartUrl}/${existingProduct.id}`, {
+                quantity: currentQuantity
+            })
+                .then(data => {
+                    if (data.result) {
+                        existingProduct.quantity = newProdQuantity ? currentQuantity : existingProduct.quantity + 1;
+                        this.setTotalSum();
+                        this.setTotalQuantity();
+                    }
+                })
+                .catch(error => console.log(error))
+        },
+
+        addNewProduct(product) {
+            const productToCart = {
+                id: Math.floor(Math.random() * 1000),
+                quantity: 1,
+                ...product
+            };
+            
+            this.$parent.postJson(this.cartUrl, productToCart)
+                .then(data => {
+                    if (data.result) {
+                        this.cartProducts.push(productToCart);
+                        this.setTotalQuantity();
+                        this.setTotalSum();
+                    }
+                })
+                .catch(error => console.log(error))
+        },
+
+        setProdQuantity(oldProdQuantity, newProdQuantity) {
             if (newProdQuantity) {
                 newProdQuantity = Math.abs(newProdQuantity);
-                let totalQuantity = oldProdQuantity + newProdQuantity;
+                const totalQuantity = parseInt(oldProdQuantity) + parseInt(newProdQuantity);
                 return totalQuantity;
             }
             return 1;
         },
-        removeFromCart(item) {
-            let product = this.cartProducts.find((el) => item.id_product === el.id_product);
-            if (product.quantity > 1) {
-                this.$parent.putJson(`/getCart/${product.id_product}`, {quantity: -1})
+
+        removeItem(item) {
+            const existingProduct = this.cartProducts.find( el => el.id === item.id);
+
+            if (existingProduct.quantity > 1) {
+                this.$parent.putJson(`${this.cartUrl}/${existingProduct.id}`, {quantity: -1})
                     .then(data => {
                         if (data.result) {
-                            product.quantity--;
-                            this.countSum();
+                            existingProduct.quantity--;
+                            this.setTotalSum();
+                            this.setTotalQuantity();
                         }
                     })
                     .catch(error => console.log(error))
             } else {
-                this.$parent.deleteJson(`/getCart/${product.id_product}`)
-                    .then(data => {
-                        if (data.result) {
-                            this.cartProducts.splice(this.cartProducts.indexOf(product), 1);
-                            this.countSum();
-                            this.productsQuantity = this.cartProducts.length;
-                        }
-                    })
-                    .catch(error => console.log(error))
+                this.removeFromCart(item);
             }
         },
-        countSum() {
+
+        removeFromCart(item) {
+            this.$parent.deleteJson(`${this.cartUrl}/${item.id}`)
+                .then(data => {
+                    if (data.result) {
+                        this.cartProducts.splice(this.cartProducts.indexOf(item), 1);
+                        this.setTotalSum();
+                        this.setTotalQuantity();
+                    }
+                })
+                .catch(error => console.log(error))
+        },
+
+        setTotalSum() {
             this.totalAmount = 0;
-            for (let el of this.cartProducts) {
-                let prodTotal = el.price * el.quantity;
+            this.cartProducts.map( el => {
+                const prodTotal = el.price * el.quantity;
                 this.totalAmount += prodTotal;
-            }
+            })
         },
-        quantityChange() {
-            this.productsQuantity = this.cartProducts.length;
+        setTotalQuantity() {
+            this.productsQuantity = 0;
+            this.cartProducts.map( el => this.productsQuantity += parseInt(el.quantity));
         }
     },
     mounted() {
@@ -104,7 +127,7 @@ Vue.component('cart-component', {
                             <p class="cart_empty" v-if="cartProducts.length < 1">Cart is empty</p>
                             <cartProd
                                 v-for="item of cartProducts"
-                                :key="item.id_product"
+                                :key="item.id"
                                 :cart-item="item">
                             </cartProd>
                             <div class="cart-bottom" v-if="cartProducts.length > 0">
@@ -132,17 +155,17 @@ Vue.component('cartProd', {
                         <a href="product.html"><img :src="imgName" :alt="imgAlt" class="menu-drop__product-img"></a>
                         <div class="menu-drop__product-box">
                             <a href="product.html" class="menu-drop__product-text">{{cartItem.product_name}}</a>
-                            <p class="menu-drop__product-rating">
+                            <div class="menu-drop__product-rating">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star-half-alt"></i>
-                            </p>
-                            <p class="menu-drop__product-price">{{cartItem.quantity}}  x   {{cartItem.price}}</p>
+                            </div>
+                            <div class="menu-drop__product-price">{{cartItem.quantity}}  x   {{cartItem.price}}</div>
                         </div>
                     </div>
-                    <button @click.prevent="$root.$refs.cart.removeFromCart(cartItem)" class="action__button" aria-label="remove from Cart">
+                    <button @click.prevent="$root.$refs.cart.removeItem(cartItem)" class="action__button" aria-label="remove from Cart">
                         <i class="fas fa-times-circle"></i>
                     </button>
                 </div>`
@@ -151,14 +174,14 @@ Vue.component('cartProd', {
 Vue.component('total', {
     props: ['sum'],
     template: `<div class="cart__total">
-                    <p class="cart__total-text">TOTAL</p>
-                    <p class="cart__total-sum">$ {{sum}}</p>
+                    <span class="cart__total-text">TOTAL</span>
+                    <span class="cart__total-sum">$ {{sum}}</span>
                </div>`
 });
 
 Vue.component('cartQuantity', {
     props: ['quantityInCart'],
     template: `<div v-if="quantityInCart > 0" class="cart__quantity">
-                   <p class="cart__quantity-text">{{quantityInCart}}</p>
+                   <span class="cart__quantity-text">{{quantityInCart}}</span>
                </div>`
 });
