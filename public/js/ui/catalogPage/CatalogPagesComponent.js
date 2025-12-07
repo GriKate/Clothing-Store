@@ -61,8 +61,6 @@ Vue.component('catalogPages', {
                 let arrLeft = document.querySelector('.fa-chevron-left');
                 arrLeft.classList.add('pages__active');
             }
-
-            //    если стр в середине, добавить обеим ('pages__active');
         },
         changePageColor() {
             let pages = document.querySelectorAll('.page-num');

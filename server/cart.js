@@ -54,15 +54,11 @@ router.put('/:num', (req, res) => {
 
                 const serverCart = JSON.parse(data);
                 const find = serverCart.contents.find(el => el.id === num);
+                const newQuantity = parseInt(req.body.quantity);
                 // const name = find.product_name;
 
-                // if quantity is positive number, set it like product quantity
-                if (parseInt(req.body.quantity) > 1) {
-                    find.quantity = parseInt(req.body.quantity);
-                } else if (req.body.quantity === 1) {
-                    find.quantity++;
-                } else if (req.body.quantity === -1) {
-                    find.quantity--;
+                if (newQuantity > 0) {
+                    find.quantity = newQuantity;
                 }
 
                 serverCart.totalAmount = 0;

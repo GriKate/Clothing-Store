@@ -1,14 +1,19 @@
 Vue.component('search-component', {
     data() {
         return {
-            searchLine: '',
+            searchName: '',
+        }
+    },
+    watch: {
+        searchName() {
+            this.searchName = DOMPurify.sanitize(this.searchName);
         }
     },
     methods: {},
     template: `<div class="header-form">
                     <form 
                         class="header-form__search" 
-                        @submit.prevent="$root.$refs.catalog.filterName(searchLine, null)"
+                        @submit.prevent="$root.$refs.catalog.setSearchName(searchName)"
                     >
                         <nav class="browse-button">Browse<i class="fas fa-caret-down triangle-grey"></i>
                             <div class="menu-drop browse-drop">
@@ -37,7 +42,7 @@ Vue.component('search-component', {
                                 </div>
                             </div>
                         </nav>
-                        <input type="search" name="searchItem" class="search" placeholder="Search for Item..." v-model="searchLine">
+                        <input type="search" name="searchItem" class="search" placeholder="Search for Item..." v-model="searchName">
                         <button type="submit" class="search__button" aria-label="search"><i class="fas fa-search"></i></button>
                     </form>
                 </div>`

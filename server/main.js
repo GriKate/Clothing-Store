@@ -26,11 +26,6 @@ app.use('/colors', colors);
 
 app.use('/cart', express.static('public/cart.html'));
 
-// app.get('/cart1', (req, res) => {
-//     fs.readFile('server/db/getBasket.json', 'utf-8', (err, data) => {
-//         res.send(data);
-//     })
-// });
 app.use('/getCart', cart);
 
 app.get('/test', (req, res) => {
