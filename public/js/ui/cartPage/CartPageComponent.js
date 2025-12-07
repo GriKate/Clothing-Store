@@ -20,6 +20,7 @@ Vue.component('cartPage', {
                             this.setTotalSum();
                             const cartComponentProduct = this.$parent.$refs.cart.cartProducts.find( el => el.id === existingProduct.id);
                             cartComponentProduct.quantity = existingProduct.quantity;
+                            this.$parent.$refs.cart.setTotalQuantity();
                             this.$parent.$refs.cart.totalAmount = this.totalAmount;
                         } else {
                             console.log(error);

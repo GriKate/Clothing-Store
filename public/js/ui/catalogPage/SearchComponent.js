@@ -4,6 +4,11 @@ Vue.component('search-component', {
             searchName: '',
         }
     },
+    watch: {
+        searchName() {
+            this.searchName = DOMPurify.sanitize(this.searchName);
+        }
+    },
     methods: {},
     template: `<div class="header-form">
                     <form 

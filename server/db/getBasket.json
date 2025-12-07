@@ -1,29 +1,30 @@
 {
-    "totalAmount": 180,
-    "productsQuantity": 3,
+    "totalAmount": 320,
+    "productsQuantity": 4,
     "contents": [
         {
-            "id": 972,
+            "id": 132,
             "quantity": 1,
-            "id_product": 125,
-            "product_name": "Mango Shirt",
-            "price": 20,
-            "img": "img/cart_drop_img_1.jpg",
+            "id_product": 460,
+            "product_name": "Mango Cardigan",
+            "price": 50,
+            "img": "img/cart_drop_img_2.jpg",
             "fabric": "Cotton",
             "designer": "Emilio Ricci",
             "color": "",
             "size": ""
         },
         {
-            "id": 121,
-            "quantity": 2,
-            "id_product": 450,
-            "product_name": "Mango Jacket",
-            "price": 80,
+            "id": 181,
+            "quantity": 3,
+            "id_product": 502,
+            "product_name": "Woman`s Jacket",
+            "price": 90,
             "img": "img/cart_drop_img_2.jpg",
             "fabric": "Cotton",
-            "color": "",
-            "size": ""
+            "designer": "Emilio Ricci",
+            "color": "Blue",
+            "size": "S"
         }
     ]
 }
