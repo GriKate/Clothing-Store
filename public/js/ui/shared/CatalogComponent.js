@@ -5,12 +5,36 @@ Vue.component('catalog-component', {
             urlCatalog: '/goods',
             products: [],
             filtered: [],
+            currentInputMinPrice: 0,
+            currentInputMaxPrice: 100,
+            searchName: "",
             random: [],
             currentSlice: [],
             productImgPath: 'img/',
         }
     },
+    watch: {
+        currentInputMinPrice() {
+            this.filterProducts();
+        },
+        currentInputMaxPrice() {
+            this.filterProducts();
+        },
+        searchName() {
+            this.filterProducts();
+        }
+    },
     methods: {
+        setCurrentMinPrice(price) {
+            this.currentInputMinPrice = price;
+        },
+        setCurrentMaxPrice(price) {
+            this.currentInputMaxPrice = price;
+        },
+        setSearchName(searchName) {
+            this.searchName = searchName;
+        },
+
         sliceCatalog(pageNum) {
             this.$parent.$refs.catalogPages.currentPage = pageNum;
             const start = this.num * (pageNum - 1);
@@ -34,41 +58,13 @@ Vue.component('catalog-component', {
             this.random = products.slice(0, this.num);
         },
 
-        filterName(value, arr) {
-            const regexp = new RegExp(value, 'i');
-
-            if (arr === "filtered" || Array.isArray(this.filtered) && this.filtered.length > 0) {
-                this.filtered = this.filtered.filter(el => regexp.test(el.product_name));
-            } else {
+        filterProducts() {
+            if(this.searchName) {
+                const regexp = new RegExp(this.searchName, 'i');
                 this.filtered = this.products.filter(el => regexp.test(el.product_name));
-            }
-            this.$parent.$refs.catalogPages.countPages(this.filtered.length);
-            this.$parent.$refs.catalogPages.currentPage = 1;
-            this.sliceCatalog(this.$parent.$refs.catalogPages.currentPage);
-        },
-
-        filterPrice(min, max) {
-            if (Array.isArray(this.filtered) && this.filtered.length === 0) {
-                this.products.map(el => {
-                    if (el.price >= min && el.price <= max) {
-                        this.filtered.push(el);
-                    }
-                })
-                if (this.$parent.$refs.search.searchLine) {
-                    this.filterName(this.$parent.$refs.search.searchLine, "filtered");
-                    return;
-                }
+                this.filtered = this.filtered.filter(el => el.price >= this.currentInputMinPrice && el.price <= this.currentInputMaxPrice);
             } else {
-                if (this.$parent.$refs.search.searchLine) {
-                    this.filtered = this.filtered.filter(el => el.price >= min && el.price <= max)
-                } else {
-                    this.filtered = [];
-                    this.products.map(el => {
-                        if (el.price >= min && el.price <= max) {
-                            this.filtered.push(el);
-                        }
-                    })
-                }
+                this.filtered = this.products.filter(el => el.price >= this.currentInputMinPrice && el.price <= this.currentInputMaxPrice);
             }
             this.$parent.$refs.catalogPages.countPages(this.filtered.length);
             this.$parent.$refs.catalogPages.currentPage = 1;
@@ -90,7 +86,14 @@ Vue.component('catalog-component', {
     },
     template: `<div>
                     <ul class="products__list" v-if="num === '9'">
+                        <div 
+                            v-if="filtered.length === 0 && (searchName || currentInputMinPrice || currentInputMaxPrice !== 100)" 
+                            style="width: 100%; text-align: center;"
+                        >
+                            No matching products
+                        </div>
                         <catalog-product 
+                            v-else
                             v-for="item of currentSlice" 
                             :key="item.id_product" 
                             :product-item="item"
